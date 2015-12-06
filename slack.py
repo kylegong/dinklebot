@@ -1,5 +1,3 @@
-from flask import request
-
 def response(message, private=False):
   response = {"text": message}
   if private:
@@ -8,8 +6,8 @@ def response(message, private=False):
     response["response_type"] = "in_channel"
   return response
 
-def get_post_data(key):
-  for line in request.data.splitlines():
+def get_post_data(request, key):
+  for line in request.body.splitlines():
     try:
       line_key, line_value = line.split('=')
       if line_key == key:
@@ -17,5 +15,5 @@ def get_post_data(key):
     except ValueError:
       continue
 
-def get_text():
-  return get_post_data('text')
+def get_text(request):
+  return get_post_data(request, 'text')
