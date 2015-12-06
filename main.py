@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import json
+import logging
 import webapp2
 
 import commands
@@ -8,6 +9,7 @@ import slack
 
 class CommandHandler(webapp2.RequestHandler):
   def post(self):
+    logging.info('request params: %s', self.request.params)
     full_command_text = slack.get_text(self.request)
     slack_response = slack.response(commands.run(full_command_text))
     self.response.headers['Content-Type'] = 'application/json'
