@@ -36,13 +36,13 @@ def command(name, extra=None, help_text=None, alt_names=None):
 def run(full_command_text):
   """Runs the command indicated by the text."""
   if not full_command_text:
-    return default('')
+    return speak(None)
   command, _, extra = full_command_text.partition(' ')
   function = COMMAND_MAP.get(command)
   if function:
     return function(extra)
   else:
-    return default(extra)
+    return speak(extra)
 
 
 ### Commands ###
