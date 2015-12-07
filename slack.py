@@ -1,10 +1,7 @@
-def response(message, is_private=False):
-  response = {"text": message}
-  if is_private:
-    response["response_type"] = "ephemeral"
-  else:
-    response["response_type"] = "in_channel"
+def response(text, extra_args=None):
+  response = {'text': text}
+  response.update(extra_args)
   return response
 
-def get_text(request):
+def get_request_text(request):
   return request.params.get('text')

@@ -26,12 +26,12 @@
 
 ## Adding a new command
 - Add a function to the `### Commands ###` section of `commands.py`
-    that returns a string (this will be Dinklebot's response message).
+    that returns a slack response (this will be Dinklebot's response message).
 - Wrap it with an `@command` decorator, giving it a name,
     a description of what will be done with the extra text (if used),
     and a short help message describing what the command does.  For example:
 ```
     @command('echo', extra='message', help_text='Repeat the message.')
     def echo(extra):
-      return extra
+      return slack.response(extra)
 ```

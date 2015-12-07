@@ -2,20 +2,19 @@ import collections
 
 from data import phrases
 import destiny
+import slack
 
 COMMAND_LIST = []
 COMMAND_MAP = {}
 
-def command(name, extra=None, help_text=None, alt_names=None,
-            is_private=False):
+def command(name, extra=None, help_text=None, alt_names=None):
   """Decorates a function, adding it to dinklebot's list of commands.
-  The function should have one mandatory parameter and return a string.
+  The function should have one mandatory parameter and return a slack response.
 
   Args:
     extra: (Optional) If extra text will be used, a short description.
     help_text: (Required) A short description of what the command does.
     alt_names: (Optional) Alternate names that will also trigger the command.
-    is_private: If True, the response should be sent privately (ephemerally).
   """
   if not help_text:
     raise Exception('Commands must include help_text')
@@ -28,7 +27,6 @@ def command(name, extra=None, help_text=None, alt_names=None,
     wrapper.extra = extra
     wrapper.help_text = help_text
     wrapper.alt_names = alt_names
-    wrapper.is_private = is_private
     COMMAND_LIST.append(wrapper)
     COMMAND_MAP[name] = wrapper
     for alt_name in alt_names:
@@ -36,7 +34,7 @@ def command(name, extra=None, help_text=None, alt_names=None,
     return wrapper
   return decorator
 
-def parse(full_command_text):
+def run(full_command_text):
   """Returns a tuple of the command indicated and the extra text."""
   if not full_command_text:
     return speak(None)
@@ -44,7 +42,7 @@ def parse(full_command_text):
   function = COMMAND_MAP.get(command)
   if function is None:
     function = speak
-  return (function, extra)
+  return function(extra)
 
 
 ### Commands ###
@@ -67,21 +65,21 @@ def item_search(extra, category=None):
          help_text='Search for a weapon matching the query.',
          alt_names=['w'])
 def weapon_search(extra):
-  return item_search(extra, category=destiny.WEAPON)
+  return slack.response(item_search(extra, category=destiny.WEAPON))
 
 @command('armor', extra='query',
          help_text='Search for an armor piece matching the query.',
          alt_names=['a'])
 def armor_search(extra):
-  return item_search(extra, category=destiny.ARMOR)
+  return slack.response(item_search(extra, category=destiny.ARMOR))
 
 @command('speak', help_text='Randomly say a classic dinklebot line.')
 def speak(extra):
   message = phrases.get_random_phrase()
-  return message
+  return slack.response(message)
 
 @command('help', help_text='Show a list of available commands.',
-         alt_names=['?'], is_private=True)
+         alt_names=['?'])
 def show_help(extra):
   help_messages = []
   for command in COMMAND_LIST:
@@ -92,4 +90,6 @@ def show_help(extra):
     if command.alt_names:
       help_message += ' [' + ', '.join(command.alt_names) + ']'
     help_messages.append(help_message)
-  return '\n'.join(help_messages)
+  return slack.response('\n'.join(help_messages), {
+    'response_type': 'ephemeral'
+  })
