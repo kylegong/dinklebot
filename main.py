@@ -11,7 +11,8 @@ class CommandHandler(webapp2.RequestHandler):
   def post(self):
     logging.info('request params: %s', self.request.params)
     full_command_text = slack.get_text(self.request)
-    slack_response = slack.response(commands.run(full_command_text))
+    command, extra = commands.parse(full_command_text)
+    slack_response = slack.response(command(extra), command.is_private)
     self.response.headers['Content-Type'] = 'application/json'
     self.response.write(json.dumps(slack_response))
 

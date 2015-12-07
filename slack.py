@@ -1,6 +1,6 @@
-def response(message, private=False):
+def response(message, is_private=False):
   response = {"text": message}
-  if private:
+  if is_private:
     response["response_type"] = "ephemeral"
   else:
     response["response_type"] = "in_channel"

@@ -13,4 +13,7 @@ import commands
 
 if __name__ == "__main__":
   command_text = ' '.join(sys.argv[1:])
-  print commands.run(command_text)
+  command, extra = commands.parse(command_text)
+  if command.is_private:
+    print '(Private)'
+  print command(extra)

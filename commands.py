@@ -6,7 +6,8 @@ import destiny
 COMMAND_LIST = []
 COMMAND_MAP = {}
 
-def command(name, extra=None, help_text=None, alt_names=None):
+def command(name, extra=None, help_text=None, alt_names=None,
+            is_private=False):
   """Decorates a function, adding it to dinklebot's list of commands.
   The function should have one mandatory parameter and return a string.
 
@@ -14,6 +15,7 @@ def command(name, extra=None, help_text=None, alt_names=None):
     extra: (Optional) If extra text will be used, a short description.
     help_text: (Required) A short description of what the command does.
     alt_names: (Optional) Alternate names that will also trigger the command.
+    is_private: If True, the response should be sent privately (ephemerally).
   """
   if not help_text:
     raise Exception('Commands must include help_text')
@@ -26,6 +28,7 @@ def command(name, extra=None, help_text=None, alt_names=None):
     wrapper.extra = extra
     wrapper.help_text = help_text
     wrapper.alt_names = alt_names
+    wrapper.is_private = is_private
     COMMAND_LIST.append(wrapper)
     COMMAND_MAP[name] = wrapper
     for alt_name in alt_names:
@@ -33,16 +36,15 @@ def command(name, extra=None, help_text=None, alt_names=None):
     return wrapper
   return decorator
 
-def run(full_command_text):
-  """Runs the command indicated by the text."""
+def parse(full_command_text):
+  """Returns a tuple of the command indicated and the extra text."""
   if not full_command_text:
     return speak(None)
   command, _, extra = full_command_text.partition(' ')
   function = COMMAND_MAP.get(command)
-  if function:
-    return function(extra)
-  else:
-    return speak(extra)
+  if function is None:
+    function = speak
+  return (function, extra)
 
 
 ### Commands ###
@@ -79,7 +81,7 @@ def speak(extra):
   return message
 
 @command('help', help_text='Show a list of available commands.',
-         alt_names=['?'])
+         alt_names=['?'], is_private=True)
 def show_help(extra):
   help_messages = []
   for command in COMMAND_LIST:
