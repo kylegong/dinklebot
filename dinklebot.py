@@ -1,4 +1,11 @@
 #!/usr/bin/env python2.7
+'''
+Use this to run dinklebot from the commandline.
+
+Examples:
+python dinklebot.py hi
+python dinklebot.py item gj
+'''
 
 import sys
 

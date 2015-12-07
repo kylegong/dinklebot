@@ -28,6 +28,6 @@ echo "BUNGIE_API_KEY = YOUR_BUNGIE_API_KEY" > secrets.py
 - You can run any command locally as follows:
 
 ```
-python commands_test.py hi
-python commands_test.py item gj
+python dinklebot.py hi
+python dinklebot.py item gj
 ```
