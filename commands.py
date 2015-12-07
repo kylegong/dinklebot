@@ -85,10 +85,10 @@ def speak(extra):
 def show_help(extra):
   help_messages = []
   for command in COMMAND_LIST:
-    help_message = command.name
+    help_message = '*' + command.name + ''
     if command.extra:
       help_message += ' [' + command.extra + ']'
-    help_message += ': ' + command.help_text
+    help_message += '*: ' + command.help_text
     if command.alt_names:
       help_message += ' [' + ', '.join(command.alt_names) + ']'
     help_messages.append(help_message)
