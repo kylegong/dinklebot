@@ -58,20 +58,31 @@ def item_search(extra, category=None):
     results = destiny.search_item(query)
   if len(results) < 1:
     return 'No results found for "%s"' % query
-  first_result = results[0]
-  return destiny.format_item_data(first_result)
+  item_data = results[0]
+  attachment = {
+      'title': item_data['itemName'],
+      'title_link': destiny.get_destiny_tracker_url(item_data),
+      'text': item_data['tierTypeName'] + ' ' + item_data['itemTypeName'],
+      'thumb_url': destiny.get_content_url(item_data['icon']),
+  }
+  color = destiny.get_item_color(item_data)
+  if color:
+    attachment['color'] = color
+  return slack.response('', {
+    'attachments': [attachment]
+  })
 
 @command('weapon', extra='query',
          help_text='Search for a weapon matching the query.',
          alt_names=['w'])
 def weapon_search(extra):
-  return slack.response(item_search(extra, category=destiny.WEAPON))
+  return item_search(extra, category=destiny.WEAPON)
 
 @command('armor', extra='query',
          help_text='Search for an armor piece matching the query.',
          alt_names=['a'])
 def armor_search(extra):
-  return slack.response(item_search(extra, category=destiny.ARMOR))
+  return item_search(extra, category=destiny.ARMOR)
 
 @command('speak', help_text='Randomly say a classic dinklebot line.')
 def speak(extra):

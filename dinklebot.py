@@ -18,13 +18,14 @@ import commands
 parser = argparse.ArgumentParser('Runs a dinklebot command.')
 parser.add_argument('--slack', action="store_true",
                     help=('If True, show full slack response. '
-                          'Otherwise just show the text.'))
+                          'Otherwise just show the text. '
+                          'If there is no text, will show slack response.'))
 
 if __name__ == "__main__":
   args, command = parser.parse_known_args()
   command_text = ' '.join(command)
   slack_response = commands.run(command_text)
-  if args.slack:
+  if args.slack or not slack_response.has_key('text'):
     print json.dumps(slack_response, indent=2)
   else:
     print slack_response['text']
