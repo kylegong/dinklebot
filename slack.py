@@ -16,6 +16,8 @@ def response(text, extra_args=None):
 def get_request_text(request):
   return request.params.get('text')
 
-def send_message(text, extra_args=None):
-  payload = response(text, extra_args=None)
-  urllib2.urlopen(secrets.SLACK_INCOMING_WEBHOOK, json.dumps(payload))
+def get_response_url(request):
+  return request.params.get('response_url')
+
+def send_message(message_dict, webhook=secrets.SLACK_INCOMING_WEBHOOK):
+  urllib2.urlopen(webhook, json.dumps(message_dict))

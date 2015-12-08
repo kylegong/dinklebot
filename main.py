@@ -12,8 +12,8 @@ class CommandHandler(webapp2.RequestHandler):
     logging.info('request params: %s', self.request.params)
     full_command_text = slack.get_request_text(self.request)
     slack_response = commands.run(full_command_text)
-    self.response.headers['Content-Type'] = 'application/json'
-    self.response.write(json.dumps(slack_response))
+    response_url = slack.get_response_url(self.request)
+    slack.send_message(slack_response, webhook=response_url)
 
 app = webapp2.WSGIApplication([
     ('/v1/', CommandHandler)
