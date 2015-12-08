@@ -68,7 +68,7 @@ def item_search(extra, category=None):
   color = destiny.get_item_color(item_data)
   if color:
     attachment['color'] = color
-  return slack.response('', {
+  return slack.response(None, {
     'attachments': [attachment]
   })
 

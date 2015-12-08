@@ -1,3 +1,8 @@
+import json
+import urllib2
+
+import secrets
+
 def response(text, extra_args=None):
   response = {
     "response_type": "in_channel"
@@ -10,3 +15,7 @@ def response(text, extra_args=None):
 
 def get_request_text(request):
   return request.params.get('text')
+
+def send_message(text, extra_args=None):
+  payload = response(text, extra_args=None)
+  urllib2.urlopen(secrets.SLACK_INCOMING_WEBHOOK, json.dumps(payload))
