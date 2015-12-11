@@ -115,6 +115,12 @@ def speak(extra):
   message = phrases.get_random_phrase()
   return slack.response(message)
 
+@command('whisper', help_text='Makes the response private to you.',
+         alt_names=['me'])
+def whisper(extra):
+  original_response = run(extra)
+  return slack.ephemeral(original_response)
+
 @command('help', help_text='Show a list of available commands.',
          alt_names=['?'])
 def show_help(extra):

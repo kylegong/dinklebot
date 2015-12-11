@@ -13,6 +13,14 @@ def response(text, extra_args=None):
     response.update(extra_args)
   return response
 
+def in_channel(response):
+  response["response_type"] = "in_channel"
+  return response
+
+def ephemeral(response):
+  response["response_type"] = "ephemeral"
+  return response
+
 def get_request_text(request):
   return request.params.get('text')
 
