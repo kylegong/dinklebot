@@ -1,4 +1,5 @@
 cron:
 - description: daily heroic story
   url: /v1/cron/daily/
-  schedule: every day 04:00
+  schedule: every day 01:10
+  timezone: America/Los_Angeles
