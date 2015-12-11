@@ -19,8 +19,8 @@ def search_item(query, category='', max_results=DEFAULT_MAX_RESULTS):
     'order': 'MinimumRequiredLevel',
     'direction': 'Descending',
   }
-  url = API_ROOT + "/Explorer/Items/?%s" % urllib.urlencode(params)
-  response = make_api_request(url)
+  path = "/Explorer/Items/"
+  response = make_api_request(path, params)
   data = response['data']
   definitions = response['definitions']
   results = []
@@ -31,8 +31,8 @@ def search_item(query, category='', max_results=DEFAULT_MAX_RESULTS):
   return results
 
 def fetch_item(item_id):
-  url = API_ROOT + "/Manifest/InventoryItem/%s/" % item_id
-  data = make_api_request(url)['data']
+  path = "/Manifest/InventoryItem/%s/" % item_id
+  data = make_api_request(path)['data']
   return data['inventoryItem']
 
 def format_item_data(item_data):
@@ -65,7 +65,10 @@ def get_destiny_tracker_url(item_data):
   item_id = item_data['itemHash']
   return "http://db.destinytracker.com/items/%s/" % item_id
 
-def make_api_request(url):
+def make_api_request(path, params=None):
+  url = API_ROOT + path
+  if params:
+    url += '?%s' % urllib.urlencode(params)
   request = urllib2.Request(url)
   request.add_header('X-API-Key', secrets.BUNGIE_API_KEY)
   try:
@@ -82,8 +85,8 @@ def get_content_url(path):
   return CONTENT_ROOT + path
 
 def get_account_summary(player_id):
-  url = API_ROOT + "/2/Account/%s/Summary/" % player_id
-  response = make_api_request(url)
+  path = "/2/Account/%s/Summary/" % player_id
+  response = make_api_request(path)
   return response['data']
 
 def get_last_played_character(account_summary):
@@ -95,16 +98,37 @@ def get_last_played_character(account_summary):
       last_played_character = character
   return last_played_character
 
+def get_activity(activity_hash):
+  path = "/Manifest/Activity/%s/" % activity_hash
+  return make_api_request(path)
+
 def get_activity_name(activity_hash):
   if activity_hash == 0:
     return 'In orbit'
-  url = API_ROOT + "/Manifest/Activity/%s/" % activity_hash
-  response = make_api_request(url)
-  print response
+  response = get_activity(activity_hash)
   try:
     return response['data']['activity']['activityName']
   except (KeyError, TypeError):
     return 'Unknown [%s]' % activity_hash
+
+def get_advisors(definitions=True):
+  params = {
+    'definitions': 'true' if definitions else 'false'
+  }
+  path = "/Advisors/"
+  return make_api_request(path, params)
+
+def get_daily_story():
+  advisors = get_advisors()
+  daily_hash = str(advisors['data']['dailyChapterHashes'][0])
+  return advisors['definitions']['activities'][daily_hash]
+
+def related_exotic(daily):
+  daily_hash = int(daily['activityHash'])
+  if daily_hash == 2286628407: # Paradox
+    return 'No Time To Explain: http://planetdestiny.com/no-time-to-explain/'
+  elif daily_hash == 2604992012: # Lost to Light
+    return 'Black Spindle: http://planetdestiny.com/black-spindle/'
 
 # Destiny Item Categories
 WEAPON = 1

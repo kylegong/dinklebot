@@ -110,6 +110,17 @@ def online_players(extra):
     message += '%s - %s\n' % (name, activity)
   return slack.response(message)
 
+@command('daily', help_text='Show the daily story mission.')
+def daily(extra):
+  daily = destiny.get_daily_story()
+  name = daily['activityName']
+  message = 'Daily Heroic Story: %s' % name
+  exotic = destiny.related_exotic(daily)
+  print exotic
+  if exotic:
+    message += ' - %s' % exotic
+  return slack.response(message)
+
 @command('speak', help_text='Randomly say a classic dinklebot line.')
 def speak(extra):
   message = phrases.get_random_phrase()

@@ -15,6 +15,13 @@ class CommandHandler(webapp2.RequestHandler):
     response_url = slack.get_response_url(self.request)
     slack.send_message(slack_response, webhook=response_url)
 
+class DailyHandler(webapp2.RequestHandler):
+  def get(self):
+    slack_response = commands.daily(None)
+    slack.send_message(slack_response)
+    return self.response.write(slack_response)
+
 app = webapp2.WSGIApplication([
-    ('/v1/', CommandHandler)
+    ('/v1/', CommandHandler),
+    ('/v1/cron/daily/', DailyHandler),
 ], debug=True)
