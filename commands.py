@@ -107,7 +107,7 @@ def online_players(extra):
   message = 'Players online:\n'
   for name, character in online_chars:
     activity = destiny.get_activity_name(character['currentActivityHash'])
-    message += '%s - %s' % (name, activity)
+    message += '%s - %s\n' % (name, activity)
   return slack.response(message)
 
 @command('speak', help_text='Randomly say a classic dinklebot line.')
