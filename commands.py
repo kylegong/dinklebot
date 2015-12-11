@@ -89,25 +89,27 @@ def armor_search(extra):
 @command('online', help_text='Show a list of who\'s online.',
          alt_names=['who'])
 def online_players(extra):
-  player_dates = []
+  last_played_chars = []
   for name, player_id in players.PLAYER_IDS.items():
     account_summary = destiny.get_account_summary(player_id)
-    player_dates.append((name, destiny.get_last_played(account_summary)))
-  online_players = []
-  for name, datestring in player_dates:
-    dt = datetime.datetime.strptime(datestring, "%Y-%m-%dT%H:%M:%SZ")
+    last_played_chars.append(
+        (name, destiny.get_last_played_character(account_summary)))
+  online_chars = []
+  for name, last_played_char in last_played_chars:
+    last_played_date = datetime.datetime.strptime(
+        last_played_char['dateLastPlayed'], "%Y-%m-%dT%H:%M:%SZ")
     now = datetime.datetime.utcnow()
-    if now - dt < datetime.timedelta(minutes=15):
-      online_players.append(name)
-  online_count = len(online_players)
+    if now - last_played_date < datetime.timedelta(minutes=15):
+      online_chars.append((name, last_played_char))
+  online_count = len(online_chars)
   if online_count == 0:
     return slack.response('No players online.')
-  elif online_count == 1:
-    return slack.response('1 player online: %s' % online_players[0])
-  else:
-    return slack.response('%s players online: %s' % (
-        len(online_players),
-        ', '.join(online_players)))
+  message = 'Players online:\n'
+  for name, character in online_chars:
+    activity = destiny.get_activity_description(
+        character['currentActivityHash'])
+    message += '%s - %s' % (name, activity)
+  return slack.response(message)
 
 @command('speak', help_text='Randomly say a classic dinklebot line.')
 def speak(extra):

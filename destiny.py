@@ -3,6 +3,7 @@ import logging
 import urllib
 import urllib2
 
+from data import activities
 import secrets
 
 CONTENT_ROOT = "http://www.bungie.net"
@@ -86,10 +87,20 @@ def get_account_summary(player_id):
   response = make_api_request(url)
   return response['data']
 
-def get_last_played(account_summary):
-  characters = account_summary['characters']
-  dates = [c['characterBase']['dateLastPlayed'] for c in characters]
-  return max(dates)
+def get_last_played_character(account_summary):
+  characters = [c['characterBase'] for c in account_summary['characters']]
+  last_played_character = None
+  for character in characters:
+    if (last_played_character is None or
+        last_played_character['dateLastPlayed'] < character['dateLastPlayed']):
+      last_played_character = character
+  return last_played_character
+
+def get_activity_description(activity_hash):
+  activity_desc = activities.DESCRIPTIONS.get(activity_hash)
+  if activity_desc is None:
+    activity_desc = 'Unknown [%s]' % activity_hash
+  return activity_desc
 
 # Destiny Item Categories
 WEAPON = 1
