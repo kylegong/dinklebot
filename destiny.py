@@ -81,6 +81,16 @@ def make_api_request(url):
 def get_content_url(path):
   return CONTENT_ROOT + path
 
+def get_account_summary(player_id):
+  url = API_ROOT + "/2/Account/%s/Summary/" % player_id
+  response = make_api_request(url)
+  return response['data']
+
+def get_last_played(account_summary):
+  characters = account_summary['characters']
+  dates = [c['characterBase']['dateLastPlayed'] for c in characters]
+  return max(dates)
+
 # Destiny Item Categories
 WEAPON = 1
 PRIMARY_WEAPON = 2

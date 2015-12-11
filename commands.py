@@ -1,5 +1,7 @@
 import collections
+import datetime
 
+from data import players
 from data import phrases
 import destiny
 import slack
@@ -83,6 +85,24 @@ def weapon_search(extra):
          alt_names=['a'])
 def armor_search(extra):
   return item_search(extra, category=destiny.ARMOR)
+
+@command('online', help_text='Show a list of who\'s online.',
+         alt_names=['who'])
+def online_players(extra):
+  player_dates = []
+  for name, player_id in players.PLAYER_IDS.items():
+    account_summary = destiny.get_account_summary(player_id)
+    player_dates.append((name, destiny.get_last_played(account_summary)))
+  online_players = []
+  for name, datestring in player_dates:
+    dt = datetime.datetime.strptime(datestring, "%Y-%m-%dT%H:%M:%SZ")
+    now = datetime.datetime.utcnow()
+    if now - dt < datetime.timedelta(minutes=30):
+      online_players.append(name)
+  return slack.response('%s %s online: %s' % (
+      len(online_players),
+      'players' if len(online_players) != 1 else 'player',
+      ', '.join(online_players)))
 
 @command('speak', help_text='Randomly say a classic dinklebot line.')
 def speak(extra):
