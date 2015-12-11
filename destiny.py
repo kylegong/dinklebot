@@ -96,11 +96,16 @@ def get_last_played_character(account_summary):
       last_played_character = character
   return last_played_character
 
-def get_activity_description(activity_hash):
-  activity_desc = activities.DESCRIPTIONS.get(activity_hash)
-  if activity_desc is None:
-    activity_desc = 'Unknown [%s]' % activity_hash
-  return activity_desc
+def get_activity_name(activity_hash):
+  if activity_hash == 0:
+    return 'In orbit'
+  url = API_ROOT + "/Manifest/Activity/%s/" % activity_hash
+  response = make_api_request(url)
+  print response
+  try:
+    return response['data']['activity']['activityName']
+  except (KeyError, TypeError):
+    return 'Unknown [%s]' % activity_hash
 
 # Destiny Item Categories
 WEAPON = 1

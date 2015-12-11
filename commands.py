@@ -106,8 +106,7 @@ def online_players(extra):
     return slack.response('No players online.')
   message = 'Players online:\n'
   for name, character in online_chars:
-    activity = destiny.get_activity_description(
-        character['currentActivityHash'])
+    activity = destiny.get_activity_name(character['currentActivityHash'])
     message += '%s - %s' % (name, activity)
   return slack.response(message)
 

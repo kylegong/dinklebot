@@ -1,7 +1,0 @@
-IN_ORBIT = 0
-TOWER = 2151413729
-
-DESCRIPTIONS = {
-  IN_ORBIT: "In orbit",
-  TOWER: "Tower",
-}
