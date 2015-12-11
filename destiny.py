@@ -3,7 +3,6 @@ import logging
 import urllib
 import urllib2
 
-from data import activities
 import secrets
 
 CONTENT_ROOT = "http://www.bungie.net"
