@@ -97,12 +97,17 @@ def online_players(extra):
   for name, datestring in player_dates:
     dt = datetime.datetime.strptime(datestring, "%Y-%m-%dT%H:%M:%SZ")
     now = datetime.datetime.utcnow()
-    if now - dt < datetime.timedelta(minutes=30):
+    if now - dt < datetime.timedelta(minutes=15):
       online_players.append(name)
-  return slack.response('%s %s online: %s' % (
-      len(online_players),
-      'players' if len(online_players) != 1 else 'player',
-      ', '.join(online_players)))
+  online_count = len(online_players)
+  if online_count == 0:
+    return slack.response('No players online.')
+  elif online_count == 1:
+    return slack.response('1 player online: %s' % online_players[0])
+  else:
+    return slack.response('%s players online: %s' % (
+        len(online_players),
+        ', '.join(online_players)))
 
 @command('speak', help_text='Randomly say a classic dinklebot line.')
 def speak(extra):
