@@ -45,6 +45,10 @@ representing the object.  More information about that hash can usually be
 obtained by adding a definitions=true parameter, which will return a response
 that includes data about the associated things, indexed by type and hash.
 
+The following are useful links to known Endpoints and Globals:
+http://bungienetplatform.wikia.com/wiki/Endpoints
+http://bungienetplatform.wikia.com/wiki/Globals
+
 ## Postman
 Postman is a pretty useful tool for testing REST APIs like the Destiny API.
 You can get it here.
@@ -86,5 +90,4 @@ seems to be updated about once a minute.
 
 ### characterBase/currentActivityHash
 This seems to be set to 0 when the character is logged out or in orbit.
-
-The Tower = 3743955707
+The activity hashes can be decoded with /Destiny/Manifest/Activity/[activityHash]/
