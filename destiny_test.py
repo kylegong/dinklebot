@@ -9,68 +9,81 @@ import urlparse
 
 from data import items
 
-class TestJSONServerHandler(BaseHTTPRequestHandler):
-  def do_GET(self):
-    filepath = self.path.lstrip('/')
-    if filepath.endswith('/'):
-      filepath += 'index.html'
-    with open(filepath, 'r') as f:
-      self.send_response(200)
-      self.send_header('Content-type','application/json')
-      self.end_headers()
-      self.wfile.write(f.read())
+class MockURLOpener(object):
+  def __init__(self, url_response_map):
+    self.url_response_map = url_response_map
 
-  def log_request(self, code=None, size=None):
-    return
+  def open(self, request):
+    url = request.get_full_url()
+    return self.url_response_map[url]
 
 class TestDestiny(unittest.TestCase):
-  @classmethod
-  def setUpClass(cls):
-    cls.hostname = 'localhost'
-    cls.port = 18290
-    cls.server = HTTPServer((cls.hostname, cls.port), TestJSONServerHandler)
-    threading.Thread(target=cls.server.serve_forever).start()
-
-  @classmethod
-  def tearDownClass(cls):
-    cls.server.shutdown()
-
-  def setUp(self):
-    api_root = 'http://%s:%s/testdata' % (self.__class__.hostname,
-                                          self.__class__.port)
-    self.destiny = destiny.DestinyAPI(api_root=api_root)
-
   def test_make_api_request(self):
     uri = "/Manifest/InventoryItem/1274330687/"
-    response = self.destiny.make_api_request(uri)
+    response = open('testdata/Manifest/InventoryItem/1274330687.json').read()
+    url = destiny.API_ROOT + uri
+    mock_url_opener = MockURLOpener({
+      url: response,
+    })
+    destiny_api = destiny.DestinyAPI(url_opener=mock_url_opener)
+    response = destiny_api.make_api_request(uri)
     item_data = response['data']['inventoryItem']
     self.assertEqual(1274330687, item_data['itemHash'])
     self.assertEqual('Gjallarhorn', item_data['itemName'])
 
   def test_fetch_item(self):
+    uri = "/Manifest/InventoryItem/1274330687/"
+    response = open('testdata/Manifest/InventoryItem/1274330687.json', 'r').read()
+    mock_url_opener = MockURLOpener({
+      destiny.API_ROOT + uri: response,
+    })
+    destiny_api = destiny.DestinyAPI(url_opener=mock_url_opener)
+
     # Both string and int item ids should work.
     item_ids = ["1274330687", 1274330687]
     for item_id in item_ids:
-      item_data = self.destiny.fetch_item(item_id)
+      item_data = destiny_api.fetch_item(item_id)
       self.assertEqual(1274330687, item_data['itemHash'])
       self.assertEqual('Gjallarhorn', item_data['itemName'])
 
   def test_search_item(self):
-    items = self.destiny.search_item('gjallarhorn')
+    uri = "/Explorer/Items/?count=1&direction=Descending&name=gjallarhorn&definitions=true&order=MinimumRequiredLevel&categories="
+    response = open('testdata/Explorer/Items/?count=1&direction=Descending&name=gjallarhorn&definitions=true&order=MinimumRequiredLevel&categories=', 'r').read()
+    mock_url_opener = MockURLOpener({
+      destiny.API_ROOT + uri: response,
+    })
+    destiny_api = destiny.DestinyAPI(url_opener=mock_url_opener)
+    items = destiny_api.search_item('gjallarhorn')
     self.assertEqual(1, len(items))
     item_data = items[0]
     self.assertEqual(1274330687, item_data['itemHash'])
     self.assertEqual('Gjallarhorn', item_data['itemName'])
 
   def test_search_item_with_max_results(self):
-    items = self.destiny.search_item('suros', max_results=2)
+    uri = "/Explorer/Items/?count=2&direction=Descending&name=suros&definitions=true&order=MinimumRequiredLevel&categories="
+    response = open('testdata/Explorer/Items/?count=2&direction=Descending&name=suros&definitions=true&order=MinimumRequiredLevel&categories=', 'r').read()
+    mock_url_opener = MockURLOpener({
+      destiny.API_ROOT + uri: response,
+    })
+
+    destiny_api = destiny.DestinyAPI(url_opener=mock_url_opener)
+    items = destiny_api.search_item('suros', max_results=2)
     self.assertEqual(2, len(items))
 
   def test_search_item_with_category(self):
-    weapons = self.destiny.search_item('suros', category=items.WEAPON,
+    weapons_uri = '/Explorer/Items/?count=5&direction=Descending&name=suros&definitions=true&order=MinimumRequiredLevel&categories=1'
+    weapons_response = open('testdata/Explorer/Items/?count=5&direction=Descending&name=suros&definitions=true&order=MinimumRequiredLevel&categories=1', 'r').read()
+    shaders_uri = "/Explorer/Items/?count=5&direction=Descending&name=suros&definitions=true&order=MinimumRequiredLevel&categories=41"
+    shaders_response = open('testdata/Explorer/Items/?count=5&direction=Descending&name=suros&definitions=true&order=MinimumRequiredLevel&categories=41', 'r').read()
+    mock_url_opener = MockURLOpener({
+      destiny.API_ROOT + weapons_uri: weapons_response,
+      destiny.API_ROOT + shaders_uri: shaders_response,
+    })
+    destiny_api = destiny.DestinyAPI(url_opener=mock_url_opener)
+    weapons = destiny_api.search_item('suros', category=items.WEAPON,
                                   max_results=5)
     self.assertLess(2, len(weapons))
-    shaders = self.destiny.search_item('suros', category=items.SHADERS,
+    shaders = destiny_api.search_item('suros', category=items.SHADERS,
                                   max_results=5)
     self.assertEqual(1, len(shaders))
     item_data = shaders[0]
@@ -78,7 +91,13 @@ class TestDestiny(unittest.TestCase):
     self.assertEqual('SUROS Minimalist', item_data['itemName'])
 
   def test_get_item_attachment(self):
-    item_data = self.destiny.fetch_item(1274330687)
+    uri = "/Manifest/InventoryItem/1274330687/"
+    response = open('testdata/Manifest/InventoryItem/1274330687.json', 'r').read()
+    mock_url_opener = MockURLOpener({
+      destiny.API_ROOT + uri: response,
+    })
+    destiny_api = destiny.DestinyAPI(url_opener=mock_url_opener)
+    item_data = destiny_api.fetch_item(1274330687)
     expected = {
       'color': '#ceae33',
       'text': 'Exotic Rocket Launcher',
@@ -87,7 +106,7 @@ class TestDestiny(unittest.TestCase):
       'thumb_url': ('http://www.bungie.net/common/destiny_content/icons/'
                     'eb8377390504838c0190d8d56e70d28e.jpg'),
     }
-    self.assertEqual(expected, self.destiny.get_item_attachment(item_data))
+    self.assertEqual(expected, destiny_api.get_item_attachment(item_data))
 
 if __name__ == '__main__':
     unittest.main()

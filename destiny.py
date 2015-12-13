@@ -13,7 +13,10 @@ DEFAULT_MAX_RESULTS = 1
 
 class URLOpener(object):
   def open(self, request):
-    return urllib2.urlopen(request)
+    try:
+      return urllib2.urlopen(request).read()
+    except urllib2.URLError as e:
+      logging.warning('Error fetching %s:\n%s', request.get_full_url(), e.read())
 
 class DestinyAPI(object):
   def __init__(self, api_root=API_ROOT, url_opener=None):
@@ -25,16 +28,13 @@ class DestinyAPI(object):
   ### Internal ###
   def make_api_request(self, uri, params=None):
     request = self.build_api_request(uri, params)
-    try:
-      http_response = urllib2.urlopen(request).read()
-      response = json.loads(http_response)
-      if response['ErrorCode'] != 1:
-        logging.warning('Error fetching %s: %s: %s', request.get_full_url(),
-                        response['ErrorStatus'], response['Message'])
-        return
-      return response['Response']
-    except urllib2.URLError as e:
-      logging.warning('Error fetching %s:\n%s', request.get_full_url(), e.read())
+    http_response = self.url_opener.open(request)
+    response = json.loads(http_response)
+    if response['ErrorCode'] != 1:
+      logging.warning('Error fetching %s: %s: %s', request.get_full_url(),
+                      response['ErrorStatus'], response['Message'])
+      return
+    return response['Response']
 
   def build_url(self, uri, params):
     url = self.api_root + uri
@@ -52,7 +52,7 @@ class DestinyAPI(object):
 
   def save_api_data(self, uri, params):
     request = self.build_api_request(uri, params)
-    http_response = urllib2.urlopen(request).read()
+    http_response = self.url_opener.open(request)
     TESTDATA = os.path.join(os.path.dirname(__file__), 'testdata')
     filepath = self.build_url(uri, params, TESTDATA)
     if filepath.endswith('/'):
