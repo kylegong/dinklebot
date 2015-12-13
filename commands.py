@@ -1,6 +1,7 @@
 import collections
 import datetime
 
+from data import items
 from data import players
 from data import phrases
 import destiny
@@ -52,16 +53,17 @@ def run(full_command_text):
          help_text='Search for any item matching the query.',
          alt_names=['i'])
 def item_search(extra, category=None):
+  destiny_api = destiny.DestinyAPI()
   query = extra
   results = []
   if category:
-    results = destiny.search_item(query, category)
+    results = destiny_api.search_item(query, category)
   else:
-    results = destiny.search_item(query)
+    results = destiny_api.search_item(query)
   if len(results) < 1:
     return 'No results found for "%s"' % query
   item_data = results[0]
-  attachment = destiny.get_item_attachment(item_data)
+  attachment = destiny_api.get_item_attachment(item_data)
   return slack.response(None, {
     'attachments': [attachment]
   })
@@ -70,22 +72,23 @@ def item_search(extra, category=None):
          help_text='Search for a weapon matching the query.',
          alt_names=['w'])
 def weapon_search(extra):
-  return item_search(extra, category=destiny.WEAPON)
+  return item_search(extra, category=items.WEAPON)
 
 @command('armor', extra='query',
          help_text='Search for an armor piece matching the query.',
          alt_names=['a'])
 def armor_search(extra):
-  return item_search(extra, category=destiny.ARMOR)
+  return item_search(extra, category=items.ARMOR)
 
 @command('online', help_text='Show a list of who\'s online.',
          alt_names=['who'])
 def online_players(extra):
+  destiny_api = destiny.DestinyAPI()
   last_played_chars = []
   for name, player_id in players.PLAYER_IDS.items():
-    account_summary = destiny.get_account_summary(player_id)
+    account_summary = destiny_api.get_account_summary(player_id)
     last_played_chars.append(
-        (name, destiny.get_last_played_character(account_summary)))
+        (name, destiny_api.get_last_played_character(account_summary)))
   online_chars = []
   for name, last_played_char in last_played_chars:
     last_played_date = datetime.datetime.strptime(
@@ -98,24 +101,25 @@ def online_players(extra):
     return slack.response('No players online.')
   message = 'Players online:\n'
   for name, character in online_chars:
-    activity = destiny.get_activity_name(character['currentActivityHash'])
+    activity = destiny_api.get_activity_name(character['currentActivityHash'])
     message += '%s - %s\n' % (name, activity)
   return slack.response(message)
 
 @command('daily', help_text='Show the daily story mission.')
 def daily(extra):
-  daily = destiny.get_daily_story()
+  destiny_api = destiny.DestinyAPI()
+  daily = destiny_api.get_daily_story()
   name = daily['activityName']
   message = 'Daily Heroic Story: %s' % name
-  exotic = destiny.related_exotic(daily)
-  print exotic
+  exotic = destiny_api.related_exotic(daily)
   if exotic:
     message += ' - %s' % exotic
   return slack.response(message)
 
 @command('xur', help_text='Show  this week.')
 def xur(extra):
-  attachments = destiny.get_xur_inventory()
+  destiny_api = destiny.DestinyAPI()
+  attachments = destiny_api.get_xur_inventory()
   return slack.response('Xur\'s Inventory', {
     'attachments': attachments
   })

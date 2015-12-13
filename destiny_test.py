@@ -77,16 +77,17 @@ class TestDestiny(unittest.TestCase):
     self.assertEqual(2561402282, item_data['itemHash'])
     self.assertEqual('SUROS Minimalist', item_data['itemName'])
 
-  def test_format_item_data(self):
-    item_data = {
-      'itemHash': 1274330687,
-      'itemName': 'Gjallarhorn',
-      'itemTypeName': 'Rocket Launcher',
-      'tierTypeName': 'Exotic',
+  def test_get_item_attachment(self):
+    item_data = self.destiny.fetch_item(1274330687)
+    expected = {
+      'color': '#ceae33',
+      'text': 'Exotic Rocket Launcher',
+      'title': 'Gjallarhorn',
+      'title_link': 'http://db.destinytracker.com/items/1274330687/',
+      'thumb_url': ('http://www.bungie.net/common/destiny_content/icons/'
+                    'eb8377390504838c0190d8d56e70d28e.jpg'),
     }
-    expected_text = ('Gjallarhorn\nExotic Rocket Launcher\n'
-                     'http://db.destinytracker.com/items/1274330687/')
-    self.assertEqual(expected_text, self.destiny.format_item_data(item_data))
+    self.assertEqual(expected, self.destiny.get_item_attachment(item_data))
 
 if __name__ == '__main__':
     unittest.main()

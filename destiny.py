@@ -27,7 +27,6 @@ class DestinyAPI(object):
         return
       return response['Response']
     except urllib2.URLError as e:
-      logging.warning(e)
       logging.warning('Error fetching %s:\n%s', request.get_full_url(), e.read())
 
   def build_url(self, uri, params):
@@ -84,19 +83,6 @@ class DestinyAPI(object):
     data = self.make_api_request(uri)['data']
     return data['inventoryItem']
 
-  def format_item_data(self, item_data):
-    item_id = item_data['itemHash']
-    item_name = item_data['itemName']
-    item_type = item_data['itemTypeName']
-    tier = item_data['tierTypeName']
-    message = '%(item_name)s\n%(tier)s %(item_type)s\n%(destiny_tracker_url)s' % {
-      'item_name': item_name,
-      'tier': tier,
-      'item_type': item_type,
-      'destiny_tracker_url': self.get_destiny_tracker_url(item_data),
-    }
-    return message
-
   def get_item_color(self, item_data):
     tier = item_data['tierTypeName']
     if tier == 'Exotic':
@@ -146,7 +132,7 @@ class DestinyAPI(object):
     uri = "/Advisors/"
     return self.make_api_request(uri, params)
 
-  def get_daily_story():
+  def get_daily_story(self):
     advisors = self.get_advisors()
     daily_hash = str(advisors['data']['dailyChapterHashes'][0])
     return advisors['definitions']['activities'][daily_hash]
