@@ -61,15 +61,7 @@ def item_search(extra, category=None):
   if len(results) < 1:
     return 'No results found for "%s"' % query
   item_data = results[0]
-  attachment = {
-      'title': item_data['itemName'],
-      'title_link': destiny.get_destiny_tracker_url(item_data),
-      'text': item_data['tierTypeName'] + ' ' + item_data['itemTypeName'],
-      'thumb_url': destiny.get_content_url(item_data['icon']),
-  }
-  color = destiny.get_item_color(item_data)
-  if color:
-    attachment['color'] = color
+  attachment = destiny.get_item_attachment(item_data)
   return slack.response(None, {
     'attachments': [attachment]
   })
@@ -120,6 +112,13 @@ def daily(extra):
   if exotic:
     message += ' - %s' % exotic
   return slack.response(message)
+
+@command('xur', help_text='Show  this week.')
+def xur(extra):
+  attachments = destiny.get_xur_inventory()
+  return slack.response('Xur\'s Inventory', {
+    'attachments': attachments
+  })
 
 @command('speak', help_text='Randomly say a classic dinklebot line.')
 def speak(extra):

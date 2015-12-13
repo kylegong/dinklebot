@@ -1,172 +1,195 @@
 import json
 import logging
+import os
 import urllib
 import urllib2
 
+from data import items
 import secrets
 
 CONTENT_ROOT = "http://www.bungie.net"
 API_ROOT = "https://www.bungie.net/Platform/Destiny"
 DEFAULT_MAX_RESULTS = 1
 
-def search_item(query, category='', max_results=DEFAULT_MAX_RESULTS):
-  params = {
-    'name': query,
-    'count': max_results,
-    'categories': str(category),
-    'definitions': 'true',
-    # Sort by MinimumRequiredLevel Descending to prioritize newer versions
-    'order': 'MinimumRequiredLevel',
-    'direction': 'Descending',
-  }
-  path = "/Explorer/Items/"
-  response = make_api_request(path, params)
-  data = response['data']
-  definitions = response['definitions']
-  results = []
-  item_ids = [str(item_id) for item_id in data['itemHashes']]
-  items = definitions['items']
-  for item_id in item_ids[:max_results]:
-    results.append(items[item_id])
-  return results
+class DestinyAPI(object):
+  def __init__(self, api_root=API_ROOT):
+    self.api_root = api_root
 
-def fetch_item(item_id):
-  path = "/Manifest/InventoryItem/%s/" % item_id
-  data = make_api_request(path)['data']
-  return data['inventoryItem']
+  ### Internal ###
+  def make_api_request(self, uri, params=None):
+    request = self.build_api_request(uri, params)
+    try:
+      http_response = urllib2.urlopen(request).read()
+      response = json.loads(http_response)
+      if response['ErrorCode'] != 1:
+        logging.warning('Error fetching %s: %s: %s', request.get_full_url(),
+                        response['ErrorStatus'], response['Message'])
+        return
+      return response['Response']
+    except urllib2.URLError as e:
+      logging.warning(e)
+      logging.warning('Error fetching %s:\n%s', request.get_full_url(), e.read())
 
-def format_item_data(item_data):
-  item_id = item_data['itemHash']
-  item_name = item_data['itemName']
-  item_type = item_data['itemTypeName']
-  tier = item_data['tierTypeName']
-  message = '''%(item_name)s
-%(tier)s %(item_type)s
-%(destiny_tracker_url)s''' % {
-    'item_name': item_name,
-    'tier': tier,
-    'item_type': item_type,
-    'destiny_tracker_url': get_destiny_tracker_url(item_data),
-  }
-  return message
+  def build_url(self, uri, params):
+    url = self.api_root + uri
+    if params:
+      url += '?%s' % urllib.urlencode(params)
+    return url
 
-def get_item_color(item_data):
-  tier = item_data['tierTypeName']
-  if tier == 'Exotic':
-    return EXOTIC_COLOR
-  elif tier == 'Legendary':
-    return LEGENDARY_COLOR
-  elif tier == 'Rare':
-    return RARE_COLOR
-  elif tier == 'Uncommon':
-    return UNCOMMON_COLOR
+  def build_api_request(self, uri, params, api_key=secrets.BUNGIE_API_KEY):
+    request = urllib2.Request(self.build_url(uri, params))
+    request.add_header('X-API-Key', api_key)
+    return request
 
-def get_destiny_tracker_url(item_data):
-  item_id = item_data['itemHash']
-  return "http://db.destinytracker.com/items/%s/" % item_id
+  def build_content_url(self, uri, content_root=CONTENT_ROOT):
+    return content_root + uri
 
-def make_api_request(path, params=None):
-  url = API_ROOT + path
-  if params:
-    url += '?%s' % urllib.urlencode(params)
-  request = urllib2.Request(url)
-  request.add_header('X-API-Key', secrets.BUNGIE_API_KEY)
-  try:
-    response = json.loads(urllib2.urlopen(request).read())
-    if response['ErrorCode'] != 1:
-      logging.warning('Error fetching %s: %s: %s', url, response['ErrorStatus'],
-                      response['Message'])
-      return
-    return response['Response']
-  except urllib2.URLError as e:
-    logging.warning('Error fetching %s:\n%s', url, e.read())
+  def save_api_data(self, uri, params):
+    request = self.build_api_request(uri, params)
+    http_response = urllib2.urlopen(request).read()
+    TESTDATA = os.path.join(os.path.dirname(__file__), 'testdata')
+    filepath = self.build_url(uri, params, TESTDATA)
+    if filepath.endswith('/'):
+      filepath += 'index.html'
+    parent = os.path.dirname(filepath)
+    if not os.path.exists(parent):
+      os.makedirs(parent)
+    f = open(filepath, 'w')
+    f.write(http_response)
 
-def get_content_url(path):
-  return CONTENT_ROOT + path
+  ### Public ###
+  def search_item(self, query, category='', max_results=DEFAULT_MAX_RESULTS):
+    params = {
+      'name': query,
+      'count': max_results,
+      'categories': str(category),
+      'definitions': 'true',
+      # Sort by MinimumRequiredLevel Descending to prioritize newer versions
+      'order': 'MinimumRequiredLevel',
+      'direction': 'Descending',
+    }
+    uri = "/Explorer/Items/"
+    response = self.make_api_request(uri, params)
+    data = response['data']
+    definitions = response['definitions']
+    results = []
+    item_ids = [str(item_id) for item_id in data['itemHashes']]
+    items = definitions['items']
+    for item_id in item_ids[:max_results]:
+      results.append(items[item_id])
+    return results
 
-def get_account_summary(player_id):
-  path = "/2/Account/%s/Summary/" % player_id
-  response = make_api_request(path)
-  return response['data']
+  def fetch_item(self, item_id):
+    uri = "/Manifest/InventoryItem/%s/" % item_id
+    data = self.make_api_request(uri)['data']
+    return data['inventoryItem']
 
-def get_last_played_character(account_summary):
-  characters = [c['characterBase'] for c in account_summary['characters']]
-  last_played_character = None
-  for character in characters:
-    if (last_played_character is None or
-        last_played_character['dateLastPlayed'] < character['dateLastPlayed']):
-      last_played_character = character
-  return last_played_character
+  def format_item_data(self, item_data):
+    item_id = item_data['itemHash']
+    item_name = item_data['itemName']
+    item_type = item_data['itemTypeName']
+    tier = item_data['tierTypeName']
+    message = '%(item_name)s\n%(tier)s %(item_type)s\n%(destiny_tracker_url)s' % {
+      'item_name': item_name,
+      'tier': tier,
+      'item_type': item_type,
+      'destiny_tracker_url': self.get_destiny_tracker_url(item_data),
+    }
+    return message
 
-def get_activity(activity_hash):
-  path = "/Manifest/Activity/%s/" % activity_hash
-  return make_api_request(path)
+  def get_item_color(self, item_data):
+    tier = item_data['tierTypeName']
+    if tier == 'Exotic':
+      return items.EXOTIC_COLOR
+    elif tier == 'Legendary':
+      return items.LEGENDARY_COLOR
+    elif tier == 'Rare':
+      return items.RARE_COLOR
+    elif tier == 'Uncommon':
+      return items.UNCOMMON_COLOR
 
-def get_activity_name(activity_hash):
-  if activity_hash == 0:
-    return 'In orbit'
-  response = get_activity(activity_hash)
-  try:
-    return response['data']['activity']['activityName']
-  except (KeyError, TypeError):
-    return 'Unknown [%s]' % activity_hash
+  def get_destiny_tracker_url(self, item_data):
+    item_id = item_data['itemHash']
+    return "http://db.destinytracker.com/items/%s/" % item_id
 
-def get_advisors(definitions=True):
-  params = {
-    'definitions': 'true' if definitions else 'false'
-  }
-  path = "/Advisors/"
-  return make_api_request(path, params)
+  def get_account_summary(self, player_id):
+    uri = "/2/Account/%s/Summary/" % player_id
+    response = self.make_api_request(uri)
+    return response['data']
 
-def get_daily_story():
-  advisors = get_advisors()
-  daily_hash = str(advisors['data']['dailyChapterHashes'][0])
-  return advisors['definitions']['activities'][daily_hash]
+  def get_last_played_character(self, account_summary):
+    characters = [c['characterBase'] for c in account_summary['characters']]
+    last_played_character = None
+    for character in characters:
+      if (last_played_character is None or
+          last_played_character['dateLastPlayed'] < character['dateLastPlayed']):
+        last_played_character = character
+    return last_played_character
 
-def related_exotic(daily):
-  daily_hash = int(daily['activityHash'])
-  if daily_hash == 2286628407: # Paradox
-    return 'No Time To Explain: http://planetdestiny.com/no-time-to-explain/'
-  elif daily_hash == 2604992012: # Lost to Light
-    return 'Black Spindle: http://planetdestiny.com/black-spindle/'
+  def get_activity(self, activity_hash):
+    uri = "/Manifest/Activity/%s/" % activity_hash
+    return self.make_api_request(uri)
 
-# Destiny Item Categories
-WEAPON = 1
-PRIMARY_WEAPON = 2
-SPECIAL_WEAPON = 3
-HEAVY_WEAPON = 4
-AUTO_RIFLE = 5
-HAND_CANNON = 6
-PULSE_RIFLE = 7
-SCOUT_RIFLE = 8
-FUSION_RIFLE = 9
-SNIPER_RIFLE = 10
-SHOTGUN = 11
-MACHINE_GUN = 12
-ROCKET_LAUNCHER = 13
-SIDEARM = 14
-CURRENCIES = 18
-EMBLEMS = 19
-ARMOR = 20
-WARLOCK = 21
-TITAN = 22
-HUNTER = 23
-BOUNTIES = 26
-CONSUMABLES = 35
-GHOST = 39
-MATERIALS = 40
-SHADERS = 41
-SHIPS = 42
-SPARROWS = 43
-HELMETS = 45
-ARMS = 46
-CHEST = 47
-LEGS = 48
-CLASS_ITEMS = 49
-INVENTORY = 52
+  def get_activity_name(self, activity_hash):
+    if activity_hash == 0:
+      return 'In orbit'
+    response = self.get_activity(activity_hash)
+    try:
+      return response['data']['activity']['activityName']
+    except (KeyError, TypeError):
+      return 'Unknown [%s]' % activity_hash
 
-# Destiny Tier Colors
-UNCOMMON_COLOR = "#366f42"
-RARE_COLOR = "#5076a3"
-LEGENDARY_COLOR = "#522f65"
-EXOTIC_COLOR = "#ceae33"
+  def get_advisors(self, definitions=True):
+    params = {
+      'definitions': 'true' if definitions else 'false'
+    }
+    uri = "/Advisors/"
+    return self.make_api_request(uri, params)
+
+  def get_daily_story():
+    advisors = self.get_advisors()
+    daily_hash = str(advisors['data']['dailyChapterHashes'][0])
+    return advisors['definitions']['activities'][daily_hash]
+
+  def related_exotic(self, daily):
+    daily_hash = int(daily['activityHash'])
+    if daily_hash == 2286628407: # Paradox
+      return 'No Time To Explain: http://planetdestiny.com/no-time-to-explain/'
+    elif daily_hash == 2604992012: # Lost to Light
+      return 'Black Spindle: http://planetdestiny.com/black-spindle/'
+
+  def get_item_attachment(self, item_data):
+    attachment = {
+      'title': item_data['itemName'],
+      'title_link': self.get_destiny_tracker_url(item_data),
+      'text':  '%s %s' % (item_data['tierTypeName'],
+                          item_data['itemTypeName']),
+      'thumb_url': self.build_content_url(item_data['icon']),
+    }
+    color = self.get_item_color(item_data)
+    if color:
+      attachment['color'] = color
+    return attachment
+
+  def get_xur_inventory(self):
+    advisors = self.get_advisors()
+    events = advisors['data']['events']['events']
+    inventory = None
+    for event in events:
+      if event['eventIdentifier'] == "SPECIAL_EVENT_BLACK_MARKET":
+        inventory = event['vendor']
+    item_categories = inventory['saleItemCategories']
+    exotics = []
+    for category in item_categories:
+      if category['categoryTitle'] == 'Exotic Gear':
+        exotics = category['saleItems']
+    attachments = []
+    for saleItem in exotics:
+      item = saleItem['item']
+      item_hash = item['itemHash']
+      item_data = advisors['definitions']['items'][str(item_hash)]
+      cost = saleItem['costs'][0]['value']
+      item_attachment = self.get_item_attachment(item_data)
+      item_attachment['text'] += '\n%d SC' % cost
+      attachments.append(item_attachment)
+    return attachments
