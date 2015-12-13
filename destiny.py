@@ -11,9 +11,16 @@ CONTENT_ROOT = "http://www.bungie.net"
 API_ROOT = "https://www.bungie.net/Platform/Destiny"
 DEFAULT_MAX_RESULTS = 1
 
+class URLOpener(object):
+  def open(self, request):
+    return urllib2.urlopen(request)
+
 class DestinyAPI(object):
-  def __init__(self, api_root=API_ROOT):
+  def __init__(self, api_root=API_ROOT, url_opener=None):
     self.api_root = api_root
+    if url_opener is None:
+      url_opener = URLOpener()
+    self.url_opener = url_opener
 
   ### Internal ###
   def make_api_request(self, uri, params=None):
