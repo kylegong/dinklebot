@@ -16,7 +16,8 @@ class URLOpener(object):
     try:
       return urllib2.urlopen(request).read()
     except urllib2.URLError as e:
-      logging.warning('Error fetching %s:\n%s', request.get_full_url(), e.read())
+      logging.warning('Error fetching %s:', request.get_full_url())
+      logging.warning(e.read())
 
 class DestinyAPI(object):
   def __init__(self, api_root=API_ROOT, url_opener=None):
@@ -91,7 +92,7 @@ class DestinyAPI(object):
     return data['inventoryItem']
 
   def get_item_color(self, item_data):
-    tier = item_data['tierTypeName']
+    tier = item_data.get('tierTypeName')
     if tier == 'Exotic':
       return items.EXOTIC_COLOR
     elif tier == 'Legendary':
@@ -100,6 +101,8 @@ class DestinyAPI(object):
       return items.RARE_COLOR
     elif tier == 'Uncommon':
       return items.UNCOMMON_COLOR
+    else:
+      return items.COMMON_COLOR
 
   def get_destiny_tracker_url(self, item_data):
     item_id = item_data['itemHash']

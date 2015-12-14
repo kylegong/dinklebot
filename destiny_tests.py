@@ -156,5 +156,20 @@ class TestDestiny(unittest.TestCase):
 
     self.assertEqual(expected, destiny_api.get_item_attachment(item_data))
 
+  def test_get_item_color(self):
+    destiny_api = destiny.DestinyAPI()
+    exotic = {'tierTypeName': 'Exotic'}
+    self.assertEqual(items.EXOTIC_COLOR, destiny_api.get_item_color(exotic))
+    legendary = {'tierTypeName': 'Legendary'}
+    self.assertEqual(items.LEGENDARY_COLOR,
+                     destiny_api.get_item_color(legendary))
+    rare = {'tierTypeName': 'Rare'}
+    self.assertEqual(items.RARE_COLOR, destiny_api.get_item_color(rare))
+    uncommon = {'tierTypeName': 'Uncommon'}
+    self.assertEqual(items.UNCOMMON_COLOR,
+                     destiny_api.get_item_color(uncommon))
+    common = {'tierTypeName': 'Common'}
+    self.assertEqual(items.COMMON_COLOR, destiny_api.get_item_color(common))
+
 if __name__ == '__main__':
     unittest.main()
