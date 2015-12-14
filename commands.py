@@ -91,10 +91,18 @@ class CommandRunner(object):
            alt_names=['who'])
   def online_players(self, extra):
     last_played_chars = []
-    for name, player_id in players.PLAYER_IDS.items():
+    threads = []
+    import threading
+    def get_last_played(name, player_id):
       account_summary = self.destiny_api.get_account_summary(player_id)
       last_played_chars.append(
           (name, self.destiny_api.get_last_played_character(account_summary)))
+    for name, player_id in players.PLAYER_IDS.items():
+      t = threading.Thread(target=get_last_played, args=(name, player_id))
+      t.start()
+      threads.append(t)
+    for thread in threads:
+      thread.join()
     online_chars = []
     for name, last_played_char in last_played_chars:
       last_played_date = datetime.datetime.strptime(
@@ -102,6 +110,8 @@ class CommandRunner(object):
       now = datetime.datetime.utcnow()
       if now - last_played_date < datetime.timedelta(minutes=15):
         online_chars.append((name, last_played_char))
+    # Sort by name
+    online_chars.sort(key=lambda x: x[0])
     online_count = len(online_chars)
     if online_count == 0:
       return slack.response('No players online.')
