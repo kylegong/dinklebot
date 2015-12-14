@@ -7,7 +7,10 @@ if __name__ == "__main__":
   all_tests = unittest.defaultTestLoader.discover('', pattern='*_tests.py')
   for all_test_suite in all_tests:
     for test_suite in all_test_suite:
-      suite.addTests(test_suite)
+      try:
+        suite.addTests(test_suite)
+      except TypeError:
+        test_suite.fail(test_suite)
 
   runner = unittest.TextTestRunner(verbosity=2)
   runner.run(suite)
