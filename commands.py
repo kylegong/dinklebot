@@ -1,3 +1,5 @@
+# coding=utf-8
+
 import collections
 import datetime
 
@@ -122,7 +124,9 @@ class CommandRunner(object):
   @command('xur', help_text='Show  this week.')
   def xur(self, extra):
     attachments = self.destiny_api.get_xur_inventory()
-    return slack.response('Xur\'s Inventory', {
+    if not attachments:
+      return slack.response(u'Xûr is gone, for now...')
+    return slack.response('Xûr\'s Inventory', {
       'attachments': attachments
     })
 
