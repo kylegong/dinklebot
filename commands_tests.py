@@ -1,3 +1,5 @@
+# coding=utf-8
+
 import commands
 
 import unittest
@@ -78,6 +80,18 @@ class TestCommand(unittest.TestCase):
 
   def test_online_players(self):
     pass
+
+  def test_xur_gone(self):
+    path = "/Advisors/"
+    params = {
+      'definitions': 'true'
+    }
+    url = self.destiny_api.build_url(path, params)
+    json = open('testdata/Advisors/no_xur.json', 'r').read()
+    self.mock_url_opener.add_response(url, json)
+
+    response = self.command_runner.xur(None)
+    self.assertEqual('Xûr is gone, for now...', response['text'])
 
 if __name__ == '__main__':
     unittest.main()

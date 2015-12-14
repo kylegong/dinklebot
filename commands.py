@@ -125,7 +125,7 @@ class CommandRunner(object):
   def xur(self, extra):
     attachments = self.destiny_api.get_xur_inventory()
     if not attachments:
-      return slack.response(u'Xûr is gone, for now...')
+      return slack.response('Xûr is gone, for now...')
     return slack.response('Xûr\'s Inventory', {
       'attachments': attachments
     })
