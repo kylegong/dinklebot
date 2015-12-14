@@ -81,6 +81,28 @@ class TestCommand(unittest.TestCase):
   def test_online_players(self):
     pass
 
+  def test_daily_with_exotic(self):
+    path = "/Advisors/"
+    params = {
+      'definitions': 'true'
+    }
+    url = self.destiny_api.build_url(path, params)
+    json = open('testdata/Advisors/lost_to_light.json', 'r').read()
+    self.mock_url_opener.add_response(url, json)
+
+    item_path = "/Manifest/InventoryItem/3227022822/"
+    item_url = self.destiny_api.build_url(item_path)
+    item_json = open(
+        'testdata/Manifest/InventoryItem/black_spindle.json', 'r').read()
+    self.mock_url_opener.add_response(item_url, item_json)
+
+    response = self.command_runner.daily(None)
+    self.assertEqual('Daily Heroic Story: Lost to Light\n'
+                     'Exotic quest for:', response['text'])
+    self.assertEqual(1, len(response.get('attachments')))
+    attachment = response['attachments'][0]
+    self.assertEqual('Black Spindle', attachment['title'])
+
   def test_xur_gone(self):
     path = "/Advisors/"
     params = {

@@ -128,7 +128,9 @@ class CommandRunner(object):
     message = 'Daily Heroic Story: %s' % name
     exotic = self.destiny_api.related_exotic(daily)
     if exotic:
-      message += ' - %s' % exotic
+      message += '\nExotic quest for:'
+      attachments = [self.destiny_api.get_item_attachment(exotic)]
+      return slack.response(message, {'attachments': attachments})
     return slack.response(message)
 
   @command('xur', help_text='Show  this week.')

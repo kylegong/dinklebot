@@ -150,9 +150,9 @@ class DestinyAPI(object):
   def related_exotic(self, daily):
     daily_hash = int(daily['activityHash'])
     if daily_hash == 2286628407: # Paradox
-      return 'No Time To Explain: http://planetdestiny.com/no-time-to-explain/'
+      return self.fetch_item(4097026463) # No Time to Explain
     elif daily_hash == 2604992012: # Lost to Light
-      return 'Black Spindle: http://planetdestiny.com/black-spindle/'
+      return self.fetch_item(3227022822) # Black Spindle
 
   def get_item_attachment(self, item_data):
     attachment = {

@@ -215,11 +215,17 @@ class TestDestiny(unittest.TestCase):
     url = self.destiny_api.build_url(path, params)
     response = open('testdata/Advisors/lost_to_light.json', 'r').read()
     self.mock_url_opener.add_response(url, response)
+
+    item_path = "/Manifest/InventoryItem/3227022822/"
+    item_url = self.destiny_api.build_url(item_path)
+    item_json = open(
+        'testdata/Manifest/InventoryItem/black_spindle.json', 'r').read()
+    self.mock_url_opener.add_response(item_url, item_json)
     
     daily_story = self.destiny_api.get_daily_story()
     self.assertEqual('Lost to Light', daily_story['activityName'])
     related_exotic = self.destiny_api.related_exotic(daily_story)
-    self.assertTrue(related_exotic.startswith('Black Spindle'))
+    self.assertTrue('Black Spindle', related_exotic['itemName'])
 
   def test_get_xur_inventory_no_xur(self):
     path = "/Advisors/"
