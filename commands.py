@@ -46,12 +46,12 @@ class CommandRunner(object):
   def run(self, full_command_text):
     """Returns a tuple of the command indicated and the extra text."""
     if not full_command_text:
-      return speak(None)
-    command, _, extra = full_command_text.partition(' ')
-    function = COMMAND_MAP.get(command)
-    if function is None:
-      function = speak
-    return function(self, extra)
+      return CommandRunner.speak(self, None)
+    command_name, _, extra = full_command_text.partition(' ')
+    command = COMMAND_MAP.get(command_name)
+    if command is None:
+      command = CommandRunner.speak
+    return command(self, extra)
 
 
   ### Commands ###
