@@ -26,8 +26,8 @@ class DestinyAPI(object):
     self.url_opener = url_opener
 
   ### Internal ###
-  def make_api_request(self, uri, params=None):
-    request = self.build_api_request(uri, params)
+  def make_api_request(self, path, params=None):
+    request = self.build_api_request(path, params)
     http_response = self.url_opener.open(request)
     response = json.loads(http_response)
     if response['ErrorCode'] != 1:
@@ -36,25 +36,25 @@ class DestinyAPI(object):
       return
     return response['Response']
 
-  def build_url(self, uri, params):
-    url = self.api_root + uri
+  def build_url(self, path, params=None):
+    url = self.api_root + path
     if params:
       url += '?%s' % urllib.urlencode(params)
     return url
 
-  def build_api_request(self, uri, params, api_key=secrets.BUNGIE_API_KEY):
-    request = urllib2.Request(self.build_url(uri, params))
+  def build_api_request(self, path, params, api_key=secrets.BUNGIE_API_KEY):
+    request = urllib2.Request(self.build_url(path, params))
     request.add_header('X-API-Key', api_key)
     return request
 
-  def build_content_url(self, uri, content_root=CONTENT_ROOT):
-    return content_root + uri
+  def build_content_url(self, path, content_root=CONTENT_ROOT):
+    return content_root + path
 
-  def save_api_data(self, uri, params):
-    request = self.build_api_request(uri, params)
+  def save_api_data(self, path, params):
+    request = self.build_api_request(path, params)
     http_response = self.url_opener.open(request)
     TESTDATA = os.path.join(os.path.dirname(__file__), 'testdata')
-    filepath = self.build_url(uri, params, TESTDATA)
+    filepath = self.build_url(path, params, TESTDATA)
     if filepath.endswith('/'):
       filepath += 'index.html'
     parent = os.path.dirname(filepath)
@@ -74,8 +74,8 @@ class DestinyAPI(object):
       'order': 'MinimumRequiredLevel',
       'direction': 'Descending',
     }
-    uri = "/Explorer/Items/"
-    response = self.make_api_request(uri, params)
+    path = "/Explorer/Items/"
+    response = self.make_api_request(path, params)
     data = response['data']
     definitions = response['definitions']
     results = []
@@ -86,8 +86,8 @@ class DestinyAPI(object):
     return results
 
   def fetch_item(self, item_id):
-    uri = "/Manifest/InventoryItem/%s/" % item_id
-    data = self.make_api_request(uri)['data']
+    path = "/Manifest/InventoryItem/%s/" % item_id
+    data = self.make_api_request(path)['data']
     return data['inventoryItem']
 
   def get_item_color(self, item_data):
@@ -106,8 +106,8 @@ class DestinyAPI(object):
     return "http://db.destinytracker.com/items/%s/" % item_id
 
   def get_account_summary(self, player_id):
-    uri = "/2/Account/%s/Summary/" % player_id
-    response = self.make_api_request(uri)
+    path = "/2/Account/%s/Summary/" % player_id
+    response = self.make_api_request(path)
     return response['data']
 
   def get_last_played_character(self, account_summary):
@@ -120,8 +120,8 @@ class DestinyAPI(object):
     return last_played_character
 
   def get_activity(self, activity_hash):
-    uri = "/Manifest/Activity/%s/" % activity_hash
-    return self.make_api_request(uri)
+    path = "/Manifest/Activity/%s/" % activity_hash
+    return self.make_api_request(path)
 
   def get_activity_name(self, activity_hash):
     if activity_hash == 0:
@@ -136,8 +136,8 @@ class DestinyAPI(object):
     params = {
       'definitions': 'true' if definitions else 'false'
     }
-    uri = "/Advisors/"
-    return self.make_api_request(uri, params)
+    path = "/Advisors/"
+    return self.make_api_request(path, params)
 
   def get_daily_story(self):
     advisors = self.get_advisors()
