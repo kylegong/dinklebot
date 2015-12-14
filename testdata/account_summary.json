@@ -1,0 +1,964 @@
+{
+    "Response": {
+        "data": {
+            "membershipId": "4611686018428863262",
+            "membershipType": 2,
+            "characters": [
+                {
+                    "characterBase": {
+                        "membershipId": "4611686018428863262",
+                        "membershipType": 2,
+                        "characterId": "2305843009217219989",
+                        "dateLastPlayed": "2015-12-13T23:14:42Z",
+                        "minutesPlayedThisSession": "79",
+                        "minutesPlayedTotal": "25312",
+                        "powerLevel": 308,
+                        "raceHash": 898834093,
+                        "genderHash": 3111576190,
+                        "classHash": 671679327,
+                        "currentActivityHash": 0,
+                        "lastCompletedStoryHash": 0,
+                        "stats": {
+                            "STAT_DEFENSE": {
+                                "statHash": 3897883278,
+                                "value": 0,
+                                "maximumValue": 0
+                            },
+                            "STAT_INTELLECT": {
+                                "statHash": 144602215,
+                                "value": 303,
+                                "maximumValue": 0
+                            },
+                            "STAT_DISCIPLINE": {
+                                "statHash": 1735777505,
+                                "value": 144,
+                                "maximumValue": 0
+                            },
+                            "STAT_STRENGTH": {
+                                "statHash": 4244567218,
+                                "value": 169,
+                                "maximumValue": 0
+                            },
+                            "STAT_LIGHT": {
+                                "statHash": 2391494160,
+                                "value": 308,
+                                "maximumValue": 0
+                            },
+                            "STAT_ARMOR": {
+                                "statHash": 392767087,
+                                "value": 8,
+                                "maximumValue": 0
+                            },
+                            "STAT_AGILITY": {
+                                "statHash": 2996146975,
+                                "value": 7,
+                                "maximumValue": 0
+                            },
+                            "STAT_RECOVERY": {
+                                "statHash": 1943323491,
+                                "value": 1,
+                                "maximumValue": 0
+                            },
+                            "STAT_OPTICS": {
+                                "statHash": 3555269338,
+                                "value": 84,
+                                "maximumValue": 0
+                            }
+                        },
+                        "customization": {
+                            "personality": 2166136261,
+                            "face": 4017475050,
+                            "skinColor": 793756321,
+                            "lipColor": 156633750,
+                            "eyeColor": 4187018149,
+                            "hairColor": 1941802473,
+                            "featureColor": 2166136261,
+                            "decalColor": 2194048905,
+                            "wearHelmet": false,
+                            "hairIndex": 12,
+                            "featureIndex": 0,
+                            "decalIndex": 4
+                        },
+                        "grimoireScore": 3900,
+                        "peerView": {
+                            "equipment": [
+                                {
+                                    "itemHash": 4143670657,
+                                    "dyes": []
+                                },
+                                {
+                                    "itemHash": 1149751883,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 3414276421
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 1097801068
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 2477452795
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 2302693612,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 3414276421
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 1097801068
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 2477452795
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 1811367950,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 3414276421
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 1097801068
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 2477452795
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 1217254415,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 3414276421
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 1097801068
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 2477452795
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 1722532281,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 3414276421
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 2368627807
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 2477452795
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 1475134443,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 1667433279,
+                                            "dyeHash": 1156291787
+                                        },
+                                        {
+                                            "channelHash": 1667433278,
+                                            "dyeHash": 1919782500
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 1703777169,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 1667433279,
+                                            "dyeHash": 3134239381
+                                        },
+                                        {
+                                            "channelHash": 1667433278,
+                                            "dyeHash": 1085257422
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 3012398149,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 1667433279,
+                                            "dyeHash": 3687095305
+                                        },
+                                        {
+                                            "channelHash": 1667433278,
+                                            "dyeHash": 1185998866
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 2390487995,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 284967655,
+                                            "dyeHash": 2332957895
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 2092342451,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 2025709351,
+                                            "dyeHash": 3493108743
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 3542867423,
+                                    "dyes": []
+                                },
+                                {
+                                    "itemHash": 2211817416,
+                                    "dyes": []
+                                },
+                                {
+                                    "itemHash": 3671454770,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 3414276421
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 1097801068
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 2477452795
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 1235719490,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 3414276421
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 1097801068
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 2477452795
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 4219537949,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 3414276421
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 1097801068
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 2477452795
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 2801714428,
+                                    "dyes": []
+                                }
+                            ]
+                        },
+                        "genderType": 0,
+                        "classType": 1,
+                        "buildStatGroupHash": 3155986019
+                    },
+                    "levelProgression": {
+                        "dailyProgress": 0,
+                        "weeklyProgress": 0,
+                        "currentProgress": 346000,
+                        "level": 40,
+                        "step": 0,
+                        "progressToNextLevel": 0,
+                        "nextLevelAt": 0,
+                        "progressionHash": 1716568313
+                    },
+                    "emblemPath": "/common/destiny_content/icons/45b68ae4bbd3cf3f825379a58571055b.jpg",
+                    "backgroundPath": "/common/destiny_content/icons/4a40c3a86c1985727b40c35c4a93ea5c.jpg",
+                    "emblemHash": 2211817416,
+                    "characterLevel": 40,
+                    "baseCharacterLevel": 40,
+                    "isPrestigeLevel": false,
+                    "percentToNextLevel": 0
+                },
+                {
+                    "characterBase": {
+                        "membershipId": "4611686018428863262",
+                        "membershipType": 2,
+                        "characterId": "2305843009249214248",
+                        "dateLastPlayed": "2015-12-13T21:55:02Z",
+                        "minutesPlayedThisSession": "21",
+                        "minutesPlayedTotal": "21035",
+                        "powerLevel": 303,
+                        "raceHash": 3887404748,
+                        "genderHash": 2204441813,
+                        "classHash": 3655393761,
+                        "currentActivityHash": 0,
+                        "lastCompletedStoryHash": 0,
+                        "stats": {
+                            "STAT_DEFENSE": {
+                                "statHash": 3897883278,
+                                "value": 0,
+                                "maximumValue": 0
+                            },
+                            "STAT_INTELLECT": {
+                                "statHash": 144602215,
+                                "value": 317,
+                                "maximumValue": 0
+                            },
+                            "STAT_DISCIPLINE": {
+                                "statHash": 1735777505,
+                                "value": 161,
+                                "maximumValue": 0
+                            },
+                            "STAT_STRENGTH": {
+                                "statHash": 4244567218,
+                                "value": 138,
+                                "maximumValue": 0
+                            },
+                            "STAT_LIGHT": {
+                                "statHash": 2391494160,
+                                "value": 303,
+                                "maximumValue": 0
+                            },
+                            "STAT_ARMOR": {
+                                "statHash": 392767087,
+                                "value": 9,
+                                "maximumValue": 0
+                            },
+                            "STAT_AGILITY": {
+                                "statHash": 2996146975,
+                                "value": 4,
+                                "maximumValue": 0
+                            },
+                            "STAT_RECOVERY": {
+                                "statHash": 1943323491,
+                                "value": 3,
+                                "maximumValue": 0
+                            },
+                            "STAT_OPTICS": {
+                                "statHash": 3555269338,
+                                "value": 49,
+                                "maximumValue": 0
+                            }
+                        },
+                        "customization": {
+                            "personality": 2166136261,
+                            "face": 2132087816,
+                            "skinColor": 3045033365,
+                            "lipColor": 404671486,
+                            "eyeColor": 1194006499,
+                            "hairColor": 2739213077,
+                            "featureColor": 2166136261,
+                            "decalColor": 2714701679,
+                            "wearHelmet": false,
+                            "hairIndex": 13,
+                            "featureIndex": 0,
+                            "decalIndex": 0
+                        },
+                        "grimoireScore": 3900,
+                        "peerView": {
+                            "equipment": [
+                                {
+                                    "itemHash": 21395672,
+                                    "dyes": []
+                                },
+                                {
+                                    "itemHash": 2602145129,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 1886450146
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 4142904731
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 748249690
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 3055446327,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 1886450146
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 4142904731
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 748249690
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 1705510184,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 1886450146
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 4142904731
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 748249690
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 2959003546,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 1886450146
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 4142904731
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 748249690
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 825392783,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 1886450146
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 2974795657
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 748249690
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 2790109141,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 1667433279,
+                                            "dyeHash": 232590457
+                                        },
+                                        {
+                                            "channelHash": 1667433278,
+                                            "dyeHash": 3825422722
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 486279087,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 1667433279,
+                                            "dyeHash": 2390538575
+                                        },
+                                        {
+                                            "channelHash": 1667433278,
+                                            "dyeHash": 3962017816
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 2781253736,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 1667433279,
+                                            "dyeHash": 3511985148
+                                        },
+                                        {
+                                            "channelHash": 1667433278,
+                                            "dyeHash": 170329731
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 2695084041,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 284967655,
+                                            "dyeHash": 1318359685
+                                        },
+                                        {
+                                            "channelHash": 840921382,
+                                            "dyeHash": 3470211564
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 3703598457,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 2025709351,
+                                            "dyeHash": 794303093
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 3542867423,
+                                    "dyes": []
+                                },
+                                {
+                                    "itemHash": 1443409300,
+                                    "dyes": []
+                                },
+                                {
+                                    "itemHash": 651681369,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 1886450146
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 4142904731
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 748249690
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 1356246089,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 1886450146
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 4142904731
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 748249690
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 4219537949,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 1886450146
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 4142904731
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 748249690
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 2125621867,
+                                    "dyes": []
+                                }
+                            ]
+                        },
+                        "genderType": 1,
+                        "classType": 0,
+                        "buildStatGroupHash": 1514588224
+                    },
+                    "levelProgression": {
+                        "dailyProgress": 0,
+                        "weeklyProgress": 0,
+                        "currentProgress": 346000,
+                        "level": 40,
+                        "step": 0,
+                        "progressToNextLevel": 0,
+                        "nextLevelAt": 0,
+                        "progressionHash": 1716568313
+                    },
+                    "emblemPath": "/common/destiny_content/icons/95f5895fb4587a3a7e881d6407446f4e.jpg",
+                    "backgroundPath": "/common/destiny_content/icons/250167349c96cdff92476901dca13c71.jpg",
+                    "emblemHash": 1443409300,
+                    "characterLevel": 40,
+                    "baseCharacterLevel": 40,
+                    "isPrestigeLevel": false,
+                    "percentToNextLevel": 0
+                },
+                {
+                    "characterBase": {
+                        "membershipId": "4611686018428863262",
+                        "membershipType": 2,
+                        "characterId": "2305843009215579049",
+                        "dateLastPlayed": "2015-12-10T06:25:33Z",
+                        "minutesPlayedThisSession": "83",
+                        "minutesPlayedTotal": "3403",
+                        "powerLevel": 135,
+                        "raceHash": 2803282938,
+                        "genderHash": 2204441813,
+                        "classHash": 2271682572,
+                        "currentActivityHash": 0,
+                        "lastCompletedStoryHash": 0,
+                        "stats": {
+                            "STAT_DEFENSE": {
+                                "statHash": 3897883278,
+                                "value": 0,
+                                "maximumValue": 0
+                            },
+                            "STAT_INTELLECT": {
+                                "statHash": 144602215,
+                                "value": 50,
+                                "maximumValue": 0
+                            },
+                            "STAT_DISCIPLINE": {
+                                "statHash": 1735777505,
+                                "value": 69,
+                                "maximumValue": 0
+                            },
+                            "STAT_STRENGTH": {
+                                "statHash": 4244567218,
+                                "value": 0,
+                                "maximumValue": 0
+                            },
+                            "STAT_LIGHT": {
+                                "statHash": 2391494160,
+                                "value": 135,
+                                "maximumValue": 0
+                            },
+                            "STAT_ARMOR": {
+                                "statHash": 392767087,
+                                "value": 2,
+                                "maximumValue": 0
+                            },
+                            "STAT_AGILITY": {
+                                "statHash": 2996146975,
+                                "value": 6,
+                                "maximumValue": 0
+                            },
+                            "STAT_RECOVERY": {
+                                "statHash": 1943323491,
+                                "value": 9,
+                                "maximumValue": 0
+                            },
+                            "STAT_OPTICS": {
+                                "statHash": 3555269338,
+                                "value": 77,
+                                "maximumValue": 0
+                            }
+                        },
+                        "customization": {
+                            "personality": 2166136261,
+                            "face": 2695914757,
+                            "skinColor": 1815484268,
+                            "lipColor": 2844894639,
+                            "eyeColor": 1511637750,
+                            "hairColor": 1398195103,
+                            "featureColor": 2166136261,
+                            "decalColor": 1609827957,
+                            "wearHelmet": false,
+                            "hairIndex": 11,
+                            "featureIndex": 0,
+                            "decalIndex": 5
+                        },
+                        "grimoireScore": 3900,
+                        "peerView": {
+                            "equipment": [
+                                {
+                                    "itemHash": 1256644900,
+                                    "dyes": []
+                                },
+                                {
+                                    "itemHash": 3431564413,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 3482049618
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 4187235051
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 3438822090
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 1266297712,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 120475643
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 90253110
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 1329963725
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 1620016732,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 3482049618
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 4187235051
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 3438822090
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 1001251654,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 120475643
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 90253110
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 1329963725
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 2122538507,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 2241443140
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 918490273
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 474511912
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 2024569242,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 1667433279,
+                                            "dyeHash": 3750371330
+                                        },
+                                        {
+                                            "channelHash": 1667433278,
+                                            "dyeHash": 157539065
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 2580843731,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 1667433279,
+                                            "dyeHash": 2686416819
+                                        },
+                                        {
+                                            "channelHash": 1667433278,
+                                            "dyeHash": 1989287020
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 152628833,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 1667433279,
+                                            "dyeHash": 3165550597
+                                        },
+                                        {
+                                            "channelHash": 1667433278,
+                                            "dyeHash": 3570620350
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 4141295010,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 284967655,
+                                            "dyeHash": 207294206
+                                        },
+                                        {
+                                            "channelHash": 840921382,
+                                            "dyeHash": 1713379597
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 1202967480,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 2025709351,
+                                            "dyeHash": 1964776802
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 2502086555,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 4023194814,
+                                            "dyeHash": 3641231304
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 1592588000,
+                                    "dyes": []
+                                },
+                                {
+                                    "itemHash": 194424265,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 3482049618
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 4187235051
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 3438822090
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 2676353744,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 3482049618
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 4187235051
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 3438822090
+                                        }
+                                    ]
+                                },
+                                {
+                                    "itemHash": 912876054,
+                                    "dyes": [
+                                        {
+                                            "channelHash": 662199250,
+                                            "dyeHash": 3482049618
+                                        },
+                                        {
+                                            "channelHash": 1367384683,
+                                            "dyeHash": 4187235051
+                                        },
+                                        {
+                                            "channelHash": 218592586,
+                                            "dyeHash": 3438822090
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "genderType": 1,
+                        "classType": 2,
+                        "buildStatGroupHash": 2257899156
+                    },
+                    "levelProgression": {
+                        "dailyProgress": 0,
+                        "weeklyProgress": 41427,
+                        "currentProgress": 335511,
+                        "level": 39,
+                        "step": 0,
+                        "progressToNextLevel": 9511,
+                        "nextLevelAt": 20000,
+                        "progressionHash": 1716568313
+                    },
+                    "emblemPath": "/common/destiny_content/icons/d326439b35da6a1b5de8f147a159b4cc.jpg",
+                    "backgroundPath": "/common/destiny_content/icons/72da11d5918b6de9efe96957bb432457.jpg",
+                    "emblemHash": 1592588000,
+                    "characterLevel": 39,
+                    "baseCharacterLevel": 39,
+                    "isPrestigeLevel": false,
+                    "percentToNextLevel": 47.555
+                }
+            ],
+            "clanName": "Definitely Not Safe Here",
+            "clanTag": "DNSH",
+            "inventory": {
+                "items": []
+            },
+            "grimoireScore": 3900,
+            "versions": 15
+        }
+    },
+    "ErrorCode": 1,
+    "ThrottleSeconds": 0,
+    "ErrorStatus": "Success",
+    "Message": "Ok",
+    "MessageData": {}
+}

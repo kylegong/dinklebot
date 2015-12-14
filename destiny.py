@@ -174,6 +174,8 @@ class DestinyAPI(object):
     for event in events:
       if event['eventIdentifier'] == "SPECIAL_EVENT_BLACK_MARKET":
         inventory = event['vendor']
+    if inventory is None:
+      return []
     item_categories = inventory['saleItemCategories']
     exotics = []
     for category in item_categories:

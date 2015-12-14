@@ -1,0 +1,36 @@
+{
+    "Response": {
+        "data": {
+            "requestedId": 3743955707,
+            "activity": {
+                "activityHash": 3743955707,
+                "activityName": "Tower",
+                "activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
+                "icon": "/common/destiny_content/icons/6612450eafab4c43797cb04d3ba2bb21.png",
+                "releaseIcon": "/img/misc/missing_icon.png",
+                "releaseTime": 0,
+                "activityLevel": 1,
+                "completionFlagHash": 0,
+                "activityPower": 0,
+                "minParty": 1,
+                "maxParty": 6,
+                "maxPlayers": 16,
+                "destinationHash": 2612139675,
+                "placeHash": 3747705955,
+                "activityTypeHash": 1589650888,
+                "tier": -1,
+                "pgcrImage": "/img/theme/destiny/bgs/pgcrs/default.jpg",
+                "rewards": [],
+                "skulls": [],
+                "isPlaylist": false,
+                "hash": 3743955707,
+                "index": 0
+            }
+        }
+    },
+    "ErrorCode": 1,
+    "ThrottleSeconds": 0,
+    "ErrorStatus": "Success",
+    "Message": "Ok",
+    "MessageData": {}
+}
