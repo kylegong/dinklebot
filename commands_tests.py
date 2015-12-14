@@ -2,9 +2,30 @@ import commands
 
 import unittest
 
+import destiny
+from data import items
+from testing import mocks
+
 class TestCommand(unittest.TestCase):
+  def setUp(self):
+    self.mock_url_opener = mocks.MockURLOpener()
+    self.destiny_api = destiny.DestinyAPI(url_opener=self.mock_url_opener)
+    self.command_runner = commands.CommandRunner(self.destiny_api)
+
   def test_weapon_search(self):
-    response = commands.weapon_search('Gjallarhorn')
+    path = "/Explorer/Items/"
+    params = {
+      'count': 1,
+      'direction': 'Descending',
+      'name': 'Gjallarhorn',
+      'definitions': 'true',
+      'order': 'MinimumRequiredLevel',
+      'categories': items.WEAPON,
+    }
+    url = self.destiny_api.build_url(path, params)
+    json = open('testdata/Explorer/Items/gjallarhorn.json', 'r').read()
+    self.mock_url_opener.add_response(url, json)
+    response = self.command_runner.weapon_search('Gjallarhorn')
     expected_attachment = {
       'color': '#ceae33',
       'text': 'Exotic Rocket Launcher',
@@ -19,7 +40,19 @@ class TestCommand(unittest.TestCase):
     self.assertEqual(expected_attachment, response['attachments'][0])
 
   def test_armor_search(self):
-    response = commands.armor_search('taiko')
+    path = "/Explorer/Items/"
+    params = {
+      'count': 1,
+      'direction': 'Descending',
+      'name': 'taiko',
+      'definitions': 'true',
+      'order': 'MinimumRequiredLevel',
+      'categories': items.ARMOR,
+    }
+    url = self.destiny_api.build_url(path, params)
+    json = open('testdata/Explorer/Items/taiko.json', 'r').read()
+    self.mock_url_opener.add_response(url, json)
+    response = self.command_runner.armor_search('taiko')
     expected_attachment = {
       'color': '#ceae33',
       'text': 'Exotic Helmet',
@@ -34,14 +67,17 @@ class TestCommand(unittest.TestCase):
     self.assertEqual(expected_attachment, response['attachments'][0])
 
   def test_speak(self):
-    response = commands.speak(None)
+    response = self.command_runner.speak(None)
     self.assertEqual('in_channel', response['response_type'])
     self.assertTrue(response['text'])
 
   def test_whisper(self):
-    response = commands.whisper('speak')
+    response = self.command_runner.whisper('speak')
     self.assertEqual('ephemeral', response['response_type'])
     self.assertTrue(response['text'])
+
+  def test_online_players(self):
+    pass
 
 if __name__ == '__main__':
     unittest.main()

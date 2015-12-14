@@ -8,27 +8,11 @@ import unittest
 import urlparse
 
 from data import items
-
-class MockURLOpener(object):
-  def __init__(self, api_root=destiny.API_ROOT):
-    self.responses = {}
-
-  def add_response(self, url, response):
-    self.responses[url] = response
-
-  def open(self, request):
-    url = request.get_full_url()
-    try:
-      return self.responses[url]
-    except KeyError:
-      error_msg = 'Unexpected URL\nRequested:\n%s\nExpected:\n' % url
-      for expected_url in self.responses.keys():
-        error_msg += '%s\n' % expected_url
-      raise Exception(error_msg)
+from testing import mocks
 
 class TestDestiny(unittest.TestCase):
   def setUp(self):
-    self.mock_url_opener = MockURLOpener()
+    self.mock_url_opener = mocks.MockURLOpener()
     self.destiny_api = destiny.DestinyAPI(url_opener=self.mock_url_opener)
 
   def test_make_api_request(self):
@@ -251,6 +235,7 @@ class TestDestiny(unittest.TestCase):
 
   def test_get_xur_inventory(self):
     # TODO: need example JSON inventory with Xur there
+    pass
 
 if __name__ == '__main__':
     unittest.main()

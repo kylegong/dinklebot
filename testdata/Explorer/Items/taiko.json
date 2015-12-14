@@ -1,0 +1,1523 @@
+{
+    "Response": {
+        "data": {
+            "itemHashes": [
+                591060261
+            ],
+            "totalResults": "1",
+            "hasMore": false,
+            "query": {
+                "itemsPerPage": 10,
+                "currentPage": 0
+            },
+            "useTotalResults": true
+        },
+        "definitions": {
+            "items": {
+                "591060261": {
+                    "itemHash": 591060261,
+                    "itemName": "The Taikonaut",
+                    "itemDescription": "The helmets worn by the first Chinese lunar colonists of the Golden Age.",
+                    "icon": "/common/destiny_content/icons/f28523f56de25b2f6c5c56acb9d4b9a5.jpg",
+                    "secondaryIcon": "/img/misc/missing_icon.png",
+                    "actionName": "Dismantle",
+                    "hasAction": true,
+                    "deleteOnAction": true,
+                    "tierTypeName": "Exotic",
+                    "tierType": 6,
+                    "itemTypeName": "Helmet",
+                    "bucketTypeHash": 3448274439,
+                    "primaryBaseStatHash": 3897883278,
+                    "stats": {
+                        "144602215": {
+                            "statHash": 144602215,
+                            "value": 35,
+                            "minimum": 35,
+                            "maximum": 60
+                        },
+                        "1735777505": {
+                            "statHash": 1735777505,
+                            "value": 35,
+                            "minimum": 35,
+                            "maximum": 60
+                        },
+                        "2391494160": {
+                            "statHash": 2391494160,
+                            "value": 31,
+                            "minimum": 31,
+                            "maximum": 31
+                        },
+                        "3897883278": {
+                            "statHash": 3897883278,
+                            "value": 310,
+                            "minimum": 280,
+                            "maximum": 310
+                        },
+                        "4244567218": {
+                            "statHash": 4244567218,
+                            "value": 35,
+                            "minimum": 35,
+                            "maximum": 60
+                        }
+                    },
+                    "perkHashes": [],
+                    "specialItemType": 0,
+                    "talentGridHash": 3826688218,
+                    "equippingBlock": {
+                        "weaponSandboxPatternIndex": -1,
+                        "gearArtArrangementIndex": 2811,
+                        "defaultDyes": [],
+                        "lockedDyes": [
+                            {
+                                "channelHash": 662199250,
+                                "dyeHash": 806939542
+                            },
+                            {
+                                "channelHash": 1367384683,
+                                "dyeHash": 977117015
+                            },
+                            {
+                                "channelHash": 218592586,
+                                "dyeHash": 2903380566
+                            }
+                        ],
+                        "customDyes": [],
+                        "customDyeExpression": {
+                            "steps": [
+                                {
+                                    "stepOperator": 1,
+                                    "flagHash": 1680320212,
+                                    "valueHash": 0,
+                                    "value": 2312
+                                }
+                            ]
+                        },
+                        "weaponPatternHash": 0,
+                        "arrangements": [
+                            {
+                                "classHash": 0,
+                                "gearArtArrangementIndex": 2811
+                            }
+                        ]
+                    },
+                    "hasGeometry": true,
+                    "statGroupHash": 1116828683,
+                    "itemLevels": [
+                        0
+                    ],
+                    "qualityLevel": 0,
+                    "equippable": true,
+                    "instanced": true,
+                    "rewardItemHash": 0,
+                    "values": {},
+                    "itemType": 2,
+                    "itemSubType": 0,
+                    "classType": 0,
+                    "sources": [
+                        {
+                            "expansionIndex": 0,
+                            "level": 51,
+                            "minQuality": 0,
+                            "maxQuality": 0,
+                            "minLevelRequired": 40,
+                            "maxLevelRequired": 40,
+                            "exclusivity": 0,
+                            "computedStats": {
+                                "144602215": {
+                                    "statHash": 144602215,
+                                    "value": 35,
+                                    "minimum": 35,
+                                    "maximum": 60
+                                },
+                                "1735777505": {
+                                    "statHash": 1735777505,
+                                    "value": 35,
+                                    "minimum": 35,
+                                    "maximum": 60
+                                },
+                                "2391494160": {
+                                    "statHash": 2391494160,
+                                    "value": 31,
+                                    "minimum": 31,
+                                    "maximum": 31
+                                },
+                                "3897883278": {
+                                    "statHash": 3897883278,
+                                    "value": 310,
+                                    "minimum": 310,
+                                    "maximum": 310
+                                },
+                                "4244567218": {
+                                    "statHash": 4244567218,
+                                    "value": 35,
+                                    "minimum": 35,
+                                    "maximum": 60
+                                }
+                            },
+                            "sourceHashes": [
+                                3551688287,
+                                460228854
+                            ],
+                            "spawnIndexes": [
+                                1
+                            ]
+                        },
+                        {
+                            "expansionIndex": 0,
+                            "level": 49,
+                            "minQuality": 0,
+                            "maxQuality": 20,
+                            "minLevelRequired": 40,
+                            "maxLevelRequired": 40,
+                            "exclusivity": 0,
+                            "computedStats": {
+                                "144602215": {
+                                    "statHash": 144602215,
+                                    "value": 32,
+                                    "minimum": 32,
+                                    "maximum": 60
+                                },
+                                "1735777505": {
+                                    "statHash": 1735777505,
+                                    "value": 32,
+                                    "minimum": 32,
+                                    "maximum": 60
+                                },
+                                "2391494160": {
+                                    "statHash": 2391494160,
+                                    "value": 29,
+                                    "minimum": 29,
+                                    "maximum": 31
+                                },
+                                "3897883278": {
+                                    "statHash": 3897883278,
+                                    "value": 290,
+                                    "minimum": 290,
+                                    "maximum": 310
+                                },
+                                "4244567218": {
+                                    "statHash": 4244567218,
+                                    "value": 32,
+                                    "minimum": 32,
+                                    "maximum": 60
+                                }
+                            },
+                            "sourceHashes": [
+                                3551688287,
+                                113998144,
+                                460228854
+                            ],
+                            "spawnIndexes": [
+                                0,
+                                2,
+                                3,
+                                4,
+                                5,
+                                6,
+                                7,
+                                8,
+                                9,
+                                10,
+                                11,
+                                12,
+                                13,
+                                14,
+                                15,
+                                16,
+                                17,
+                                18,
+                                19,
+                                20,
+                                21
+                            ]
+                        },
+                        {
+                            "expansionIndex": 0,
+                            "level": 48,
+                            "minQuality": 0,
+                            "maxQuality": 0,
+                            "minLevelRequired": 40,
+                            "maxLevelRequired": 40,
+                            "exclusivity": 0,
+                            "computedStats": {
+                                "144602215": {
+                                    "statHash": 144602215,
+                                    "value": 31,
+                                    "minimum": 31,
+                                    "maximum": 53
+                                },
+                                "1735777505": {
+                                    "statHash": 1735777505,
+                                    "value": 31,
+                                    "minimum": 31,
+                                    "maximum": 53
+                                },
+                                "2391494160": {
+                                    "statHash": 2391494160,
+                                    "value": 28,
+                                    "minimum": 28,
+                                    "maximum": 28
+                                },
+                                "3897883278": {
+                                    "statHash": 3897883278,
+                                    "value": 280,
+                                    "minimum": 280,
+                                    "maximum": 280
+                                },
+                                "4244567218": {
+                                    "statHash": 4244567218,
+                                    "value": 31,
+                                    "minimum": 31,
+                                    "maximum": 53
+                                }
+                            },
+                            "sourceHashes": [
+                                941581325,
+                                460228854
+                            ],
+                            "spawnIndexes": [
+                                22
+                            ]
+                        }
+                    ],
+                    "itemCategoryHashes": [
+                        22,
+                        45,
+                        20
+                    ],
+                    "sourceHashes": [
+                        3551688287,
+                        460228854,
+                        113998144,
+                        941581325
+                    ],
+                    "nonTransferrable": false,
+                    "exclusive": 0,
+                    "maxStackSize": 1,
+                    "itemIndex": 0,
+                    "setItemHashes": [],
+                    "questlineItemHash": 0,
+                    "needsFullCompletion": false,
+                    "objectiveHashes": [],
+                    "allowActions": true,
+                    "questTrackingUnlockValueHash": 0,
+                    "bountyResetUnlockHash": 0,
+                    "hash": 591060261,
+                    "index": 0
+                }
+            },
+            "buckets": {
+                "3448274439": {
+                    "bucketHash": 3448274439,
+                    "bucketName": "Helmet",
+                    "bucketDescription": "Helmets and hoods.",
+                    "scope": 0,
+                    "category": 3,
+                    "bucketOrder": 50,
+                    "bucketIdentifier": "BUCKET_HEAD",
+                    "itemCount": 10,
+                    "location": 1,
+                    "hasTransferDestination": true,
+                    "enabled": true,
+                    "hash": 3448274439,
+                    "index": 0
+                }
+            },
+            "stats": {
+                "144602215": {
+                    "statHash": 144602215,
+                    "statName": "Intellect",
+                    "statDescription": "Decreases the cooldown of your super ability.\n\nIntellect can be increased by your Armor.",
+                    "icon": "/common/destiny_content/icons/6cb78efb833ce709553109531604d5aa.png",
+                    "statIdentifier": "STAT_INTELLECT",
+                    "interpolate": false,
+                    "hash": 144602215,
+                    "index": 0
+                },
+                "1735777505": {
+                    "statHash": 1735777505,
+                    "statName": "Discipline",
+                    "statDescription": "Discipline decreases the cooldown time of your grenades, allowing you to use them more often.\n\nFind and equip armor with Discipline to boost this effect.",
+                    "icon": "/common/destiny_content/icons/850ae3ad2c3cede9437f5088bb6ce1da.png",
+                    "statIdentifier": "STAT_DISCIPLINE",
+                    "interpolate": false,
+                    "hash": 1735777505,
+                    "index": 0
+                },
+                "2391494160": {
+                    "statHash": 2391494160,
+                    "statName": "Light",
+                    "statDescription": "Light increases your level, increasing the damage your abilities deal against higher-level enemies.",
+                    "icon": "/common/destiny_content/icons/1cc590cf1bd9439dbf7a47862d4bbdfb.png",
+                    "statIdentifier": "STAT_LIGHT",
+                    "interpolate": false,
+                    "hash": 2391494160,
+                    "index": 0
+                },
+                "3897883278": {
+                    "statHash": 3897883278,
+                    "statName": "Defense",
+                    "statDescription": "Reduces incoming damage from your enemies.",
+                    "icon": "/img/misc/missing_icon.png",
+                    "statIdentifier": "STAT_DEFENSE",
+                    "interpolate": false,
+                    "hash": 3897883278,
+                    "index": 0
+                },
+                "4244567218": {
+                    "statHash": 4244567218,
+                    "statName": "Strength",
+                    "statDescription": "Strength reduces the cooldown time of your melee ability, allowing you to use it more often.\n\nFind and equip armor with Strength to boost this effect.",
+                    "icon": "/common/destiny_content/icons/beb90ca82c0f49e3f40c5d5645ba2c08.png",
+                    "statIdentifier": "STAT_STRENGTH",
+                    "interpolate": false,
+                    "hash": 4244567218,
+                    "index": 0
+                }
+            },
+            "perks": {
+                "448609668": {
+                    "perkHash": 448609668,
+                    "displayName": "Infusion",
+                    "displayDescription": "Replenish health when you pick up an Orb.",
+                    "displayIcon": "/common/destiny_content/icons/0546fee290599bd2307a581d7b8bdd4c.png",
+                    "isDisplayable": true,
+                    "hash": 448609668,
+                    "index": 0
+                },
+                "707792617": {
+                    "perkHash": 707792617,
+                    "displayName": "Hands-On",
+                    "displayDescription": "Gain bonus Super energy from melee kills on minions of the Darkness.",
+                    "displayIcon": "/common/destiny_content/icons/c66b708b234c433f859b3b9ac093db2b.png",
+                    "isDisplayable": true,
+                    "hash": 707792617,
+                    "index": 0
+                },
+                "1101818187": {
+                    "perkHash": 1101818187,
+                    "displayName": "Innervation",
+                    "displayDescription": "Bonus grenade energy on Orb pickup.",
+                    "displayIcon": "/common/destiny_content/icons/8ff8d1b6817f2da655dc78587d17ac76.png",
+                    "isDisplayable": true,
+                    "hash": 1101818187,
+                    "index": 0
+                },
+                "1725011705": {
+                    "perkHash": 1725011705,
+                    "displayIcon": "/img/misc/missing_icon.png",
+                    "isDisplayable": false,
+                    "hash": 1725011705,
+                    "index": 0
+                },
+                "1725011706": {
+                    "perkHash": 1725011706,
+                    "displayIcon": "/img/misc/missing_icon.png",
+                    "isDisplayable": false,
+                    "hash": 1725011706,
+                    "index": 0
+                },
+                "1725011707": {
+                    "perkHash": 1725011707,
+                    "displayName": "Air Traffic Control",
+                    "displayDescription": "All Rocket Launchers gain tracking. \nVisible radar while zooming with Heavy Weapons. \nHeavy ammo drops more often.",
+                    "displayIcon": "/common/destiny_content/icons/3284f1710b8a733f28cde116ebb59f1a.png",
+                    "isDisplayable": true,
+                    "hash": 1725011707,
+                    "index": 0
+                },
+                "2131801999": {
+                    "perkHash": 2131801999,
+                    "displayName": "Better Already",
+                    "displayDescription": "Shields start recovery immediately after Orb pickup.",
+                    "displayIcon": "/common/destiny_content/icons/eb844fce6c04340a51efe30080925a07.png",
+                    "isDisplayable": true,
+                    "hash": 2131801999,
+                    "index": 0
+                },
+                "2661061678": {
+                    "perkHash": 2661061678,
+                    "displayName": "Darkness Slayer",
+                    "displayDescription": "More Super energy from non-Guardian kills.",
+                    "displayIcon": "/common/destiny_content/icons/640194c53f8ea7cb1de5d24bd2cd78e7.png",
+                    "isDisplayable": true,
+                    "hash": 2661061678,
+                    "index": 0
+                },
+                "3302053862": {
+                    "perkHash": 3302053862,
+                    "displayName": "Heavy Lifting",
+                    "displayDescription": "Gain bonus Super energy from Heavy Weapon kills on minions of the Darkness.",
+                    "displayIcon": "/common/destiny_content/icons/04cfdf1c7515e3ef38efb52a8b669567.png",
+                    "isDisplayable": true,
+                    "hash": 3302053862,
+                    "index": 0
+                },
+                "3743041729": {
+                    "perkHash": 3743041729,
+                    "displayName": "Invigoration",
+                    "displayDescription": "Gain bonus melee energy on Orb pickups.",
+                    "displayIcon": "/common/destiny_content/icons/579224afa65ffb6395253b9ebf2315cb.png",
+                    "isDisplayable": true,
+                    "hash": 3743041729,
+                    "index": 0
+                },
+                "3792198727": {
+                    "perkHash": 3792198727,
+                    "displayName": "Ashes to Assets",
+                    "displayDescription": "Gain bonus Super energy on Grenade kills.",
+                    "displayIcon": "/common/destiny_content/icons/5196ab6b85a7a96d04a72c3358b219bd.png",
+                    "isDisplayable": true,
+                    "hash": 3792198727,
+                    "index": 0
+                }
+            },
+            "talentGrids": {
+                "3826688218": {
+                    "gridHash": 3826688218,
+                    "maxGridLevel": 0,
+                    "gridLevelPerColumn": 0,
+                    "progressionHash": 2043912351,
+                    "nodes": [
+                        {
+                            "nodeIndex": 0,
+                            "nodeHash": 0,
+                            "row": 0,
+                            "column": 0,
+                            "prerequisiteNodeIndexes": [],
+                            "binaryPairNodeIndex": -1,
+                            "autoUnlocks": false,
+                            "lastStepRepeats": false,
+                            "isRandom": false,
+                            "isRandomRepurchasable": false,
+                            "steps": [
+                                {
+                                    "stepIndex": 0,
+                                    "nodeStepHash": 1371500445,
+                                    "nodeStepName": "Air Traffic Control",
+                                    "nodeStepDescription": "All Rocket Launchers gain tracking, radar remains visible while zooming with Heavy Weapons and Heavy ammo drops more often.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/3284f1710b8a733f28cde116ebb59f1a.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 0,
+                                        "materialRequirementHashes": []
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": false,
+                                    "perkHashes": [
+                                        1725011707,
+                                        1725011706,
+                                        1725011705
+                                    ],
+                                    "startProgressionBarAtProgress": 0,
+                                    "statHashes": [],
+                                    "affectsQuality": false,
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                }
+                            ],
+                            "exlusiveWithNodes": [],
+                            "randomStartProgressionBarAtProgression": 0,
+                            "originalNodeHash": 0
+                        },
+                        {
+                            "nodeIndex": 1,
+                            "nodeHash": 1,
+                            "row": 0,
+                            "column": 2,
+                            "prerequisiteNodeIndexes": [],
+                            "binaryPairNodeIndex": -1,
+                            "autoUnlocks": false,
+                            "lastStepRepeats": false,
+                            "isRandom": true,
+                            "randomActivationRequirement": {
+                                "gridLevel": 0
+                            },
+                            "isRandomRepurchasable": false,
+                            "steps": [
+                                {
+                                    "stepIndex": 0,
+                                    "nodeStepHash": 4197414939,
+                                    "nodeStepName": "Inverse Shadow",
+                                    "nodeStepDescription": "Increased Super energy gained from killing minions of the Darkness.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/640194c53f8ea7cb1de5d24bd2cd78e7.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 5,
+                                        "materialRequirementHashes": [
+                                            2574893775,
+                                            2574893774,
+                                            2574893773,
+                                            2574893772
+                                        ]
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [
+                                        2661061678
+                                    ],
+                                    "startProgressionBarAtProgress": 22313,
+                                    "statHashes": [],
+                                    "affectsQuality": false,
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                },
+                                {
+                                    "stepIndex": 1,
+                                    "nodeStepHash": 1072283425,
+                                    "nodeStepName": "Ashes to Assets",
+                                    "nodeStepDescription": "Gain bonus Super energy on Grenade kills.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/5196ab6b85a7a96d04a72c3358b219bd.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 5,
+                                        "materialRequirementHashes": [
+                                            2574893775,
+                                            2574893774,
+                                            2574893773,
+                                            2574893772
+                                        ]
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [
+                                        3792198727
+                                    ],
+                                    "startProgressionBarAtProgress": 22313,
+                                    "statHashes": [],
+                                    "affectsQuality": false,
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                },
+                                {
+                                    "stepIndex": 2,
+                                    "nodeStepHash": 3575189929,
+                                    "nodeStepName": "Hands-On",
+                                    "nodeStepDescription": "Gain bonus Super energy from melee kills on minions of the Darkness.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/c66b708b234c433f859b3b9ac093db2b.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 5,
+                                        "materialRequirementHashes": [
+                                            2574893775,
+                                            2574893774,
+                                            2574893773,
+                                            2574893772
+                                        ]
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [
+                                        707792617
+                                    ],
+                                    "startProgressionBarAtProgress": 22313,
+                                    "statHashes": [],
+                                    "affectsQuality": false,
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                }
+                            ],
+                            "exlusiveWithNodes": [
+                                2
+                            ],
+                            "randomStartProgressionBarAtProgression": 0,
+                            "originalNodeHash": 0
+                        },
+                        {
+                            "nodeIndex": 2,
+                            "nodeHash": 2,
+                            "row": 1,
+                            "column": 2,
+                            "prerequisiteNodeIndexes": [],
+                            "binaryPairNodeIndex": -1,
+                            "autoUnlocks": false,
+                            "lastStepRepeats": false,
+                            "isRandom": true,
+                            "randomActivationRequirement": {
+                                "gridLevel": 0
+                            },
+                            "isRandomRepurchasable": false,
+                            "steps": [
+                                {
+                                    "stepIndex": 0,
+                                    "nodeStepHash": 2229212601,
+                                    "nodeStepName": "Heavy Lifting",
+                                    "nodeStepDescription": "Gain bonus Super energy from Heavy Weapon kills on minions of the Darkness.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/04cfdf1c7515e3ef38efb52a8b669567.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 6,
+                                        "materialRequirementHashes": [
+                                            2574893775,
+                                            2574893774,
+                                            2574893773,
+                                            2574893772
+                                        ]
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [
+                                        3302053862
+                                    ],
+                                    "startProgressionBarAtProgress": 52063,
+                                    "statHashes": [],
+                                    "affectsQuality": false,
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                }
+                            ],
+                            "exlusiveWithNodes": [
+                                1
+                            ],
+                            "randomStartProgressionBarAtProgression": 0,
+                            "originalNodeHash": 0
+                        },
+                        {
+                            "nodeIndex": 3,
+                            "nodeHash": 3,
+                            "row": 0,
+                            "column": 3,
+                            "prerequisiteNodeIndexes": [],
+                            "binaryPairNodeIndex": -1,
+                            "autoUnlocks": false,
+                            "lastStepRepeats": false,
+                            "isRandom": true,
+                            "randomActivationRequirement": {
+                                "gridLevel": 0
+                            },
+                            "isRandomRepurchasable": false,
+                            "steps": [
+                                {
+                                    "stepIndex": 0,
+                                    "nodeStepHash": 2901614320,
+                                    "nodeStepName": "Innervation",
+                                    "nodeStepDescription": "Bonus grenade energy on Orb pickup.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/8ff8d1b6817f2da655dc78587d17ac76.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 7,
+                                        "materialRequirementHashes": [
+                                            2574893775,
+                                            2574893774,
+                                            2574893773,
+                                            2574893772
+                                        ]
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [
+                                        1101818187
+                                    ],
+                                    "startProgressionBarAtProgress": 52063,
+                                    "statHashes": [],
+                                    "affectsQuality": false,
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                },
+                                {
+                                    "stepIndex": 1,
+                                    "nodeStepHash": 3905147082,
+                                    "nodeStepName": "Invigoration",
+                                    "nodeStepDescription": "Gain bonus melee energy on Orb pickups.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/579224afa65ffb6395253b9ebf2315cb.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 7,
+                                        "materialRequirementHashes": [
+                                            2574893775,
+                                            2574893774,
+                                            2574893773,
+                                            2574893772
+                                        ]
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [
+                                        3743041729
+                                    ],
+                                    "startProgressionBarAtProgress": 52063,
+                                    "statHashes": [],
+                                    "affectsQuality": false,
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                },
+                                {
+                                    "stepIndex": 2,
+                                    "nodeStepHash": 1068165043,
+                                    "nodeStepName": "Better Already",
+                                    "nodeStepDescription": "Shields start recovery immediately after Orb pickup.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/eb844fce6c04340a51efe30080925a07.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 7,
+                                        "materialRequirementHashes": [
+                                            2574893775,
+                                            2574893774,
+                                            2574893773,
+                                            2574893772
+                                        ]
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [
+                                        2131801999
+                                    ],
+                                    "startProgressionBarAtProgress": 52063,
+                                    "statHashes": [],
+                                    "affectsQuality": false,
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                },
+                                {
+                                    "stepIndex": 3,
+                                    "nodeStepHash": 2852187402,
+                                    "nodeStepName": "Infusion",
+                                    "nodeStepDescription": "Replenishes health each time you pick up an Orb of Light.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/0546fee290599bd2307a581d7b8bdd4c.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 7,
+                                        "materialRequirementHashes": [
+                                            2574893775,
+                                            2574893774,
+                                            2574893773,
+                                            2574893772
+                                        ]
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [
+                                        448609668
+                                    ],
+                                    "startProgressionBarAtProgress": 52063,
+                                    "statHashes": [],
+                                    "affectsQuality": false,
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                }
+                            ],
+                            "exlusiveWithNodes": [],
+                            "randomStartProgressionBarAtProgression": 0,
+                            "originalNodeHash": 0
+                        },
+                        {
+                            "nodeIndex": 4,
+                            "nodeHash": 4,
+                            "row": 1,
+                            "column": -1,
+                            "prerequisiteNodeIndexes": [],
+                            "binaryPairNodeIndex": -1,
+                            "autoUnlocks": false,
+                            "lastStepRepeats": false,
+                            "isRandom": true,
+                            "randomActivationRequirement": {
+                                "gridLevel": 0
+                            },
+                            "isRandomRepurchasable": false,
+                            "steps": [
+                                {
+                                    "stepIndex": 0,
+                                    "nodeStepHash": 0,
+                                    "icon": "/img/misc/missing_icon.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 0,
+                                        "materialRequirementHashes": []
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [],
+                                    "startProgressionBarAtProgress": 0,
+                                    "statHashes": [
+                                        4244567218,
+                                        1735777505
+                                    ],
+                                    "affectsQuality": false,
+                                    "stepGroups": {
+                                        "weaponPerformance": 0,
+                                        "impactEffects": 0,
+                                        "guardianAttributes": 1,
+                                        "lightAbilities": 0,
+                                        "damageTypes": 0
+                                    },
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                },
+                                {
+                                    "stepIndex": 1,
+                                    "nodeStepHash": 0,
+                                    "icon": "/img/misc/missing_icon.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 0,
+                                        "materialRequirementHashes": []
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [],
+                                    "startProgressionBarAtProgress": 0,
+                                    "statHashes": [
+                                        4244567218,
+                                        144602215
+                                    ],
+                                    "affectsQuality": false,
+                                    "stepGroups": {
+                                        "weaponPerformance": 0,
+                                        "impactEffects": 0,
+                                        "guardianAttributes": 1,
+                                        "lightAbilities": 0,
+                                        "damageTypes": 0
+                                    },
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                },
+                                {
+                                    "stepIndex": 2,
+                                    "nodeStepHash": 0,
+                                    "icon": "/img/misc/missing_icon.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 0,
+                                        "materialRequirementHashes": []
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [],
+                                    "startProgressionBarAtProgress": 0,
+                                    "statHashes": [
+                                        1735777505,
+                                        144602215
+                                    ],
+                                    "affectsQuality": false,
+                                    "stepGroups": {
+                                        "weaponPerformance": 0,
+                                        "impactEffects": 0,
+                                        "guardianAttributes": 1,
+                                        "lightAbilities": 0,
+                                        "damageTypes": 0
+                                    },
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                }
+                            ],
+                            "exlusiveWithNodes": [],
+                            "randomStartProgressionBarAtProgression": 0,
+                            "originalNodeHash": 0
+                        },
+                        {
+                            "nodeIndex": 5,
+                            "nodeHash": 5,
+                            "row": 0,
+                            "column": 1,
+                            "prerequisiteNodeIndexes": [],
+                            "binaryPairNodeIndex": -1,
+                            "autoUnlocks": false,
+                            "lastStepRepeats": false,
+                            "isRandom": true,
+                            "randomActivationRequirement": {
+                                "gridLevel": 0
+                            },
+                            "isRandomRepurchasable": false,
+                            "steps": [
+                                {
+                                    "stepIndex": 0,
+                                    "nodeStepHash": 1263323987,
+                                    "nodeStepName": "Increase Discipline",
+                                    "nodeStepDescription": "Increase the Discipline bonus provided by this piece of gear.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/95106da79d6ed9f828f511fd2efc8445.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 3,
+                                        "materialRequirementHashes": [
+                                            2574893775,
+                                            2574893774,
+                                            2574893773,
+                                            2574893772
+                                        ]
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [],
+                                    "startProgressionBarAtProgress": 0,
+                                    "statHashes": [
+                                        1735777505
+                                    ],
+                                    "affectsQuality": false,
+                                    "stepGroups": {
+                                        "weaponPerformance": 0,
+                                        "impactEffects": 0,
+                                        "guardianAttributes": 1,
+                                        "lightAbilities": 0,
+                                        "damageTypes": 0
+                                    },
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                },
+                                {
+                                    "stepIndex": 1,
+                                    "nodeStepHash": 1034209669,
+                                    "nodeStepName": "Increase Intellect",
+                                    "nodeStepDescription": "Increase the Intellect bonus provided by this piece of gear.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/dfa0e557f5b7a70d2979a001f185b788.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 3,
+                                        "materialRequirementHashes": [
+                                            2574893775,
+                                            2574893774,
+                                            2574893773,
+                                            2574893772
+                                        ]
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [],
+                                    "startProgressionBarAtProgress": 0,
+                                    "statHashes": [
+                                        144602215
+                                    ],
+                                    "affectsQuality": false,
+                                    "stepGroups": {
+                                        "weaponPerformance": 0,
+                                        "impactEffects": 0,
+                                        "guardianAttributes": 1,
+                                        "lightAbilities": 0,
+                                        "damageTypes": 0
+                                    },
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                },
+                                {
+                                    "stepIndex": 2,
+                                    "nodeStepHash": 1034209669,
+                                    "nodeStepName": "Increase Intellect",
+                                    "nodeStepDescription": "Increase the Intellect bonus provided by this piece of gear.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/dfa0e557f5b7a70d2979a001f185b788.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 3,
+                                        "materialRequirementHashes": [
+                                            2574893775,
+                                            2574893774,
+                                            2574893773,
+                                            2574893772
+                                        ]
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [],
+                                    "startProgressionBarAtProgress": 0,
+                                    "statHashes": [
+                                        144602215
+                                    ],
+                                    "affectsQuality": false,
+                                    "stepGroups": {
+                                        "weaponPerformance": 0,
+                                        "impactEffects": 0,
+                                        "guardianAttributes": 1,
+                                        "lightAbilities": 0,
+                                        "damageTypes": 0
+                                    },
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                }
+                            ],
+                            "exlusiveWithNodes": [
+                                6
+                            ],
+                            "randomStartProgressionBarAtProgression": 0,
+                            "originalNodeHash": 0
+                        },
+                        {
+                            "nodeIndex": 6,
+                            "nodeHash": 6,
+                            "row": 1,
+                            "column": 1,
+                            "prerequisiteNodeIndexes": [],
+                            "binaryPairNodeIndex": -1,
+                            "autoUnlocks": false,
+                            "lastStepRepeats": false,
+                            "isRandom": true,
+                            "randomActivationRequirement": {
+                                "gridLevel": 0
+                            },
+                            "isRandomRepurchasable": false,
+                            "steps": [
+                                {
+                                    "stepIndex": 0,
+                                    "nodeStepHash": 193091484,
+                                    "nodeStepName": "Increase Strength",
+                                    "nodeStepDescription": "Increase the Strength bonus provided by this piece of gear.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/ce181f28c452ae31cb78e203037a517a.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 4,
+                                        "materialRequirementHashes": [
+                                            2574893775,
+                                            2574893774,
+                                            2574893773,
+                                            2574893772
+                                        ]
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [],
+                                    "startProgressionBarAtProgress": 22313,
+                                    "statHashes": [
+                                        4244567218
+                                    ],
+                                    "affectsQuality": false,
+                                    "stepGroups": {
+                                        "weaponPerformance": 0,
+                                        "impactEffects": 0,
+                                        "guardianAttributes": 1,
+                                        "lightAbilities": 0,
+                                        "damageTypes": 0
+                                    },
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                },
+                                {
+                                    "stepIndex": 1,
+                                    "nodeStepHash": 193091484,
+                                    "nodeStepName": "Increase Strength",
+                                    "nodeStepDescription": "Increase the Strength bonus provided by this piece of gear.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/ce181f28c452ae31cb78e203037a517a.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 4,
+                                        "materialRequirementHashes": [
+                                            2574893775,
+                                            2574893774,
+                                            2574893773,
+                                            2574893772
+                                        ]
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [],
+                                    "startProgressionBarAtProgress": 22313,
+                                    "statHashes": [
+                                        4244567218
+                                    ],
+                                    "affectsQuality": false,
+                                    "stepGroups": {
+                                        "weaponPerformance": 0,
+                                        "impactEffects": 0,
+                                        "guardianAttributes": 1,
+                                        "lightAbilities": 0,
+                                        "damageTypes": 0
+                                    },
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                },
+                                {
+                                    "stepIndex": 2,
+                                    "nodeStepHash": 1263323987,
+                                    "nodeStepName": "Increase Discipline",
+                                    "nodeStepDescription": "Increase the Discipline bonus provided by this piece of gear.",
+                                    "interactionDescription": "Upgrade",
+                                    "icon": "/common/destiny_content/icons/95106da79d6ed9f828f511fd2efc8445.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 4,
+                                        "materialRequirementHashes": [
+                                            2574893775,
+                                            2574893774,
+                                            2574893773,
+                                            2574893772
+                                        ]
+                                    },
+                                    "canActivateNextStep": false,
+                                    "nextStepIndex": -1,
+                                    "isNextStepRandom": true,
+                                    "perkHashes": [],
+                                    "startProgressionBarAtProgress": 22313,
+                                    "statHashes": [
+                                        1735777505
+                                    ],
+                                    "affectsQuality": false,
+                                    "stepGroups": {
+                                        "weaponPerformance": 0,
+                                        "impactEffects": 0,
+                                        "guardianAttributes": 1,
+                                        "lightAbilities": 0,
+                                        "damageTypes": 0
+                                    },
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                }
+                            ],
+                            "exlusiveWithNodes": [
+                                5
+                            ],
+                            "randomStartProgressionBarAtProgression": 0,
+                            "originalNodeHash": 0
+                        },
+                        {
+                            "nodeIndex": 7,
+                            "nodeHash": 7,
+                            "row": 1,
+                            "column": 0,
+                            "prerequisiteNodeIndexes": [],
+                            "binaryPairNodeIndex": -1,
+                            "autoUnlocks": false,
+                            "lastStepRepeats": true,
+                            "isRandom": false,
+                            "isRandomRepurchasable": true,
+                            "steps": [
+                                {
+                                    "stepIndex": 0,
+                                    "nodeStepHash": 1270552711,
+                                    "nodeStepName": "Infuse",
+                                    "nodeStepDescription": "Consume a more powerful piece of Armor to boost the Defense value of this Armor.",
+                                    "interactionDescription": "Choose Item",
+                                    "icon": "/common/destiny_content/icons/6026c25ed2d39f644a525cddfacfa0be.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 0,
+                                        "materialRequirementHashes": [
+                                            2026399395
+                                        ]
+                                    },
+                                    "canActivateNextStep": true,
+                                    "nextStepIndex": 0,
+                                    "isNextStepRandom": false,
+                                    "perkHashes": [],
+                                    "startProgressionBarAtProgress": 0,
+                                    "statHashes": [],
+                                    "affectsQuality": false,
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                }
+                            ],
+                            "exlusiveWithNodes": [],
+                            "randomStartProgressionBarAtProgression": 0,
+                            "originalNodeHash": 0
+                        },
+                        {
+                            "nodeIndex": 8,
+                            "nodeHash": 8,
+                            "row": 2,
+                            "column": 0,
+                            "prerequisiteNodeIndexes": [],
+                            "binaryPairNodeIndex": -1,
+                            "autoUnlocks": false,
+                            "lastStepRepeats": true,
+                            "isRandom": false,
+                            "isRandomRepurchasable": true,
+                            "steps": [
+                                {
+                                    "stepIndex": 0,
+                                    "nodeStepHash": 217480046,
+                                    "nodeStepName": "Twist Fate",
+                                    "nodeStepDescription": "Changes the stats and upgrades available on this Armor.",
+                                    "interactionDescription": "Twist",
+                                    "icon": "/common/destiny_content/icons/2970c9fd3fbd25c99aee7e51df04656d.png",
+                                    "damageType": 0,
+                                    "damageTypeHash": 0,
+                                    "activationRequirement": {
+                                        "gridLevel": 0,
+                                        "materialRequirementHashes": [
+                                            1010999381
+                                        ]
+                                    },
+                                    "canActivateNextStep": true,
+                                    "nextStepIndex": 0,
+                                    "isNextStepRandom": false,
+                                    "perkHashes": [],
+                                    "startProgressionBarAtProgress": 0,
+                                    "statHashes": [],
+                                    "affectsQuality": false,
+                                    "trueStepIndex": 0,
+                                    "truePropertyIndex": 0,
+                                    "affectsLevel": false
+                                }
+                            ],
+                            "exlusiveWithNodes": [],
+                            "randomStartProgressionBarAtProgression": 0,
+                            "originalNodeHash": 0
+                        }
+                    ],
+                    "calcMaxGridLevel": 0,
+                    "calcProgressToMaxLevel": 0,
+                    "exclusiveSets": [
+                        {
+                            "nodeIndexes": [
+                                1,
+                                2
+                            ]
+                        },
+                        {
+                            "nodeIndexes": [
+                                5,
+                                6
+                            ]
+                        }
+                    ],
+                    "independentNodeIndexes": [
+                        0,
+                        3,
+                        7,
+                        8
+                    ],
+                    "hash": 3826688218,
+                    "index": 0
+                }
+            },
+            "statGroups": {
+                "1116828683": {
+                    "statGroupHash": 1116828683,
+                    "maximumValue": 0,
+                    "uiPosition": 0,
+                    "scaledStats": [
+                        {
+                            "statHash": 144602215,
+                            "maximumValue": 0,
+                            "displayAsNumeric": true,
+                            "displayInterpolation": [
+                                {
+                                    "value": 0,
+                                    "weight": 0
+                                },
+                                {
+                                    "value": 10000,
+                                    "weight": 10000
+                                }
+                            ]
+                        },
+                        {
+                            "statHash": 1735777505,
+                            "maximumValue": 0,
+                            "displayAsNumeric": true,
+                            "displayInterpolation": [
+                                {
+                                    "value": 0,
+                                    "weight": 0
+                                },
+                                {
+                                    "value": 10000,
+                                    "weight": 10000
+                                }
+                            ]
+                        },
+                        {
+                            "statHash": 4244567218,
+                            "maximumValue": 0,
+                            "displayAsNumeric": true,
+                            "displayInterpolation": [
+                                {
+                                    "value": 0,
+                                    "weight": 0
+                                },
+                                {
+                                    "value": 10000,
+                                    "weight": 10000
+                                }
+                            ]
+                        }
+                    ],
+                    "overrides": {},
+                    "hash": 1116828683,
+                    "index": 0
+                }
+            },
+            "progressionMappings": {},
+            "itemCategories": {
+                "20": {
+                    "itemCategoryHash": 20,
+                    "identifier": "CATEGORY_ARMOR",
+                    "visible": false,
+                    "title": "Armor",
+                    "shortTitle": "Armor",
+                    "description": "",
+                    "grantDestinyItemType": 0,
+                    "grantDestinySubType": 0,
+                    "grantDestinyClass": 0,
+                    "hash": 20,
+                    "index": 0
+                },
+                "22": {
+                    "itemCategoryHash": 22,
+                    "identifier": "CATEGORY_CLASS_TITAN",
+                    "visible": false,
+                    "title": "Titan",
+                    "shortTitle": "Titan",
+                    "description": "Titan class helmets, chest, arms and legs",
+                    "grantDestinyItemType": 0,
+                    "grantDestinySubType": 0,
+                    "grantDestinyClass": 0,
+                    "hash": 22,
+                    "index": 0
+                },
+                "45": {
+                    "itemCategoryHash": 45,
+                    "identifier": "CATEGORY_ARMOR_HEAD",
+                    "visible": false,
+                    "title": "Helmets",
+                    "shortTitle": "Helmets",
+                    "description": "",
+                    "grantDestinyItemType": 0,
+                    "grantDestinySubType": 0,
+                    "grantDestinyClass": 0,
+                    "hash": 45,
+                    "index": 0
+                }
+            },
+            "sources": {
+                "113998144": {
+                    "sourceHash": 113998144,
+                    "category": 1,
+                    "identifier": "SOURCE_NIGHTFALL",
+                    "sourceName": "Nightfall",
+                    "description": "This item can drop from Nightfall activities.",
+                    "icon": "/img/theme/destiny/icons/armory/sourceicons/nightfall.jpg",
+                    "hash": 113998144,
+                    "index": 0
+                },
+                "460228854": {
+                    "sourceHash": 460228854,
+                    "category": 3,
+                    "identifier": "SOURCE_TTK",
+                    "sourceName": "The Taken King",
+                    "description": "This item can drop in The Taken King expansion.",
+                    "icon": "/img/destiny_content/sources/700460_sm.png",
+                    "hash": 460228854,
+                    "index": 0
+                },
+                "941581325": {
+                    "sourceHash": 941581325,
+                    "category": 2,
+                    "identifier": "SOURCE_VENDOR_BLACK_MARKET",
+                    "sourceName": "Xûr, Agent of the Nine",
+                    "description": "Xûr, Agent of the Nine, sometimes sells this item in the Tower.",
+                    "icon": "/img/destiny_content/sources/109050_sm.png",
+                    "hash": 941581325,
+                    "index": 0
+                },
+                "3551688287": {
+                    "sourceHash": 3551688287,
+                    "category": 1,
+                    "identifier": "SOURCE_KINGS_FALL",
+                    "sourceName": "King's Fall",
+                    "description": "This item can drop in the King's Fall Raid.",
+                    "icon": "/img/destiny_content/sources/700660_sm.png",
+                    "hash": 3551688287,
+                    "index": 0
+                }
+            },
+            "objectives": {},
+            "progressions": {
+                "2043912351": {
+                    "progressionHash": 2043912351,
+                    "name": "armor_exotic",
+                    "scope": 2,
+                    "repeatLastStep": true,
+                    "icon": "/common/destiny_content/icons/e8906413cb91838022869e987f81d0b1.png",
+                    "steps": [
+                        {
+                            "progressTotal": 0
+                        },
+                        {
+                            "progressTotal": 7438
+                        },
+                        {
+                            "progressTotal": 14875
+                        }
+                    ],
+                    "hash": 2043912351,
+                    "index": 0
+                }
+            },
+            "damageTypes": {},
+            "materialRequirements": {},
+            "unlockValues": {},
+            "vendorDetails": {},
+            "locations": {},
+            "factions": {},
+            "events": {},
+            "vendorCategories": {},
+            "vendorSummaries": {},
+            "destinations": {},
+            "activities": {},
+            "books": {},
+            "places": {},
+            "activityTypes": {},
+            "activityBundles": {}
+        }
+    },
+    "ErrorCode": 1,
+    "ThrottleSeconds": 0,
+    "ErrorStatus": "Success",
+    "Message": "Ok",
+    "MessageData": {}
+}
