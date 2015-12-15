@@ -2,6 +2,7 @@
 
 import collections
 import datetime
+import threading
 
 from data import items
 from data import players
@@ -92,7 +93,6 @@ class CommandRunner(object):
   def online_players(self, extra):
     last_played_chars = []
     threads = []
-    import threading
     def get_last_played(name, player_id):
       account_summary = self.destiny_api.get_account_summary(player_id)
       last_played_chars.append(
