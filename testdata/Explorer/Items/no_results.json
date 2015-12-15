@@ -1,0 +1,47 @@
+{
+    "Response": {
+        "data": {
+            "itemHashes": [],
+            "totalResults": "0",
+            "hasMore": false,
+            "query": {
+                "itemsPerPage": 10,
+                "currentPage": 0
+            },
+            "useTotalResults": true
+        },
+        "definitions": {
+            "items": {},
+            "buckets": {},
+            "stats": {},
+            "perks": {},
+            "talentGrids": {},
+            "statGroups": {},
+            "progressionMappings": {},
+            "itemCategories": {},
+            "sources": {},
+            "objectives": {},
+            "progressions": {},
+            "damageTypes": {},
+            "materialRequirements": {},
+            "unlockValues": {},
+            "vendorDetails": {},
+            "locations": {},
+            "factions": {},
+            "events": {},
+            "vendorCategories": {},
+            "vendorSummaries": {},
+            "destinations": {},
+            "activities": {},
+            "books": {},
+            "places": {},
+            "activityTypes": {},
+            "activityBundles": {}
+        }
+    },
+    "ErrorCode": 1,
+    "ThrottleSeconds": 0,
+    "ErrorStatus": "Success",
+    "Message": "Ok",
+    "MessageData": {}
+}

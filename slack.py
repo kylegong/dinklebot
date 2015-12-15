@@ -1,4 +1,5 @@
 import json
+import logging
 import urllib2
 
 import secrets
@@ -28,4 +29,9 @@ def get_response_url(request):
   return request.params.get('response_url')
 
 def send_message(message_dict, webhook=secrets.SLACK_INCOMING_WEBHOOK):
-  urllib2.urlopen(webhook, json.dumps(message_dict))
+  payload = json.dumps(message_dict)
+  try:
+    urllib2.urlopen(webhook, payload)
+  except urllib2.HTTPError:
+    logging.warning('Error sending message to %s with payload:\n%s',
+                    webhook, payload)

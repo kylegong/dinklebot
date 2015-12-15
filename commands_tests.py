@@ -41,6 +41,25 @@ class TestCommand(unittest.TestCase):
     self.assertEqual(1, len(response['attachments']))
     self.assertEqual(expected_attachment, response['attachments'][0])
 
+  def test_weapon_search_missing(self):
+    non_weapon = 'lkwelewlwlnkle'
+    path = "/Explorer/Items/"
+    params = {
+      'count': 1,
+      'direction': 'Descending',
+      'name': non_weapon,
+      'definitions': 'true',
+      'order': 'MinimumRequiredLevel',
+      'categories': items.WEAPON,
+    }
+    url = self.destiny_api.build_url(path, params)
+    json = open('testdata/Explorer/Items/no_results.json', 'r').read()
+    self.mock_url_opener.add_response(url, json)
+    response = self.command_runner.weapon_search(non_weapon)
+    self.assertEqual('in_channel', response['response_type'])
+    self.assertTrue(response.has_key('text'))
+    self.assertTrue(response['text'].startswith('No results'))
+
   def test_armor_search(self):
     path = "/Explorer/Items/"
     params = {

@@ -70,7 +70,7 @@ class CommandRunner(object):
     else:
       results = self.destiny_api.search_item(query)
     if len(results) < 1:
-      return 'No results found for "%s"' % query
+      return slack.response('No results found for "%s"' % query)
     item_data = results[0]
     attachment = self.destiny_api.get_item_attachment(item_data)
     return slack.response(None, {
