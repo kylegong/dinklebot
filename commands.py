@@ -2,6 +2,7 @@
 
 import collections
 import datetime
+import json
 import threading
 
 from data import items
@@ -152,6 +153,15 @@ class CommandRunner(object):
   def whisper(self, extra):
     original_response = self.run(extra)
     return slack.ephemeral(original_response)
+
+  @command('render', extra='json',
+           help_text='Renders a json message privately for testing.')
+  def render(self, extra):
+    try:
+      response = json.loads(extra)
+      return slack.ephemeral(response)
+    except ValueError:
+      return slack.ephemeral(slack.response('Invalid message.'))
 
   @command('help', help_text='Show a list of available commands.',
            alt_names=['?'])
