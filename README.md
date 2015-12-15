@@ -27,15 +27,50 @@
 ```
 
 ## Adding a new command
-- Add a function to the `### Commands ###` section of `commands.py`
+- Add a method to the `### Commands ###` section of `CommandRunner` in `commands.py`
     that returns a slack response (this will be Dinklebot's response message).
 - Wrap it with an `@command` decorator, giving it a name,
     a description of what will be done with the extra text (if used),
     and a short help message describing what the command does.  For example:
 ```
-    @command('echo', extra='message', help_text='Repeat the message.')
-    def echo(extra):
-      return slack.response(extra)
+    @command('refuse', extra='order', help_text='Refuse the order.')
+    def refuse(self, extra):
+      message = 'No, I will not ' + extra
+      return slack.response(message)
+```
+
+## Adding a periodic trigger for a command
+- Add a command as described above.
+- Add a RequestHandler to `main.py`:
+```
+    class MyPeriodicHandler(webapp2.RequestHandler):
+      def get(self):
+        command_runner = commands.CommandRunner()
+        slack_response = command_runner.my_command('my extra text')
+        slack.send_message(slack_response)
+        return self.response.write(slack_response)
+```
+- Add a url for the RequestHandler to `app` in `main.py`:
+```
+    app = webapp2.WSGIApplication([
+        ...
+        ('/v1/cron/my_command/', MyPeriodicHandler),
+```
+- Add an entry for the command in `cron.yaml`:
+```
+    cron:
+    - description: my new periodic command
+      url: /v1/cron/my_command/
+      schedule: every tuesday 01:03
+      timezone: America/Los_Angeles
+```
+- More info on the `cron.yaml` format: https://cloud.google.com/appengine/docs/python/config/cron
+
+## Testing Slack responses
+- You can test the raw JSON for a slack response with the `render` dinklebot command.
+    It will render the message except that it will show up as an ephemeral message.
+```
+    /dinklebot render {'text': 'DOS is more complicated.'}
 ```
 
 # Destiny API
