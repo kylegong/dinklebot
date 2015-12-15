@@ -3,6 +3,7 @@
 import collections
 import datetime
 import json
+import logging
 import threading
 
 from data import items
@@ -161,6 +162,7 @@ class CommandRunner(object):
       response = json.loads(extra)
       return slack.ephemeral(response)
     except ValueError:
+      logging.warning('Invalid message:\n%s', extra)
       return slack.ephemeral(slack.response('Invalid message.'))
 
   @command('help', help_text='Show a list of available commands.',
