@@ -70,7 +70,7 @@
 - You can test the raw JSON for a slack response with the `render` dinklebot command.
     It will render the message except that it will show up as an ephemeral message.
 ```
-    /dinklebot render {'text': 'DOS is more complicated.'}
+    /dinklebot render {"text": "DOS is more complicated."}
 ```
 
 # Destiny API
