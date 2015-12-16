@@ -1,5 +1,8 @@
 # dinklebot
 
+Dinklebot is a Slack bot with useful commands for discussing Destiny.
+It's still very much a work in progress.
+
 ## Getting started with development
 - Set up a github account
 - Sign in, and then fork this repository to your account. The Fork button
@@ -66,12 +69,22 @@
 ```
 - More info on the `cron.yaml` format: https://cloud.google.com/appengine/docs/python/config/cron
 
-## Testing Slack responses
-- You can test the raw JSON for a slack response with the `render` dinklebot command.
-    It will render the message except that it will show up as an ephemeral message.
+## Testing Slack messages
+- You can test the raw JSON for a slack message with the `render` dinklebot command.
+    It will render the JSON as a message except that it will only be visible to you.
+- Make sure to turn off Smart Quotes under Edit > Substitutions.
 ```
-    /dinklebot render {"text": "DOS is more complicated."}
+    /dinklebot render {
+      "text": "DOS is more complicated.",
+      "attachments" : [{
+        "title": "Access Key",
+        "text": "I don't need this.",
+        "thumb_url": "http://bungie.net/common/destiny_content/icons/8ebec6e8a53fc7bdff19c42e740136fc.jpg"
+      }]
+    }
 ```
+- You can learn more about message formatting here: https://api.slack.com/docs/formatting
+- You can learn more about attachments here: https://api.slack.com/docs/attachments
 
 # Destiny API
 ## General notes
