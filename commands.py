@@ -5,6 +5,7 @@ import datetime
 import json
 import logging
 import threading
+import urlparse
 
 from data import items
 from data import players
@@ -43,7 +44,8 @@ def command(name, extra=None, help_text=None, alt_names=None):
   return decorator
 
 class CommandRunner(object):
-  def __init__(self, destiny_api=None):
+  def __init__(self, request=None, destiny_api=None):
+    self.request = request
     if destiny_api is None:
       destiny_api = destiny.DestinyAPI()
     self.destiny_api = destiny_api
@@ -143,6 +145,22 @@ class CommandRunner(object):
     return slack.response('Xûr\'s Inventory', {
       'attachments': attachments
     })
+
+  @command('spoiler', extra='message', help_text='Show a link to the message.')
+  def spoiler(self, extra):
+    import models
+    message = extra
+    username = slack.get_request_username(self.request)
+    channel = slack.get_request_channel(self.request)
+    spoiler_uri = models.Spoiler.save(username=username, channel=channel,
+                                      message=message)
+    domain = self.request.host_url
+    url = urlparse.urljoin(domain, spoiler_uri)
+    logging.info(domain, spoiler_uri, url)
+    return slack.response('Spoiler from @%s:' % username, {'attachments': [{
+      'title': 'Show spoiler...',
+      'title_link': url,
+    }]})
 
   @command('speak', help_text='Randomly say a classic dinklebot line.')
   def speak(self, extra):

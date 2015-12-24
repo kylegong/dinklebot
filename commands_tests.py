@@ -12,7 +12,7 @@ class TestCommand(unittest.TestCase):
   def setUp(self):
     self.mock_url_opener = mocks.MockURLOpener()
     self.destiny_api = destiny.DestinyAPI(url_opener=self.mock_url_opener)
-    self.command_runner = commands.CommandRunner(self.destiny_api)
+    self.command_runner = commands.CommandRunner(destiny_api=self.destiny_api)
 
   def test_weapon_search(self):
     path = "/Explorer/Items/"

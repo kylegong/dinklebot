@@ -25,6 +25,12 @@ def ephemeral(response):
 def get_request_text(request):
   return request.params.get('text')
 
+def get_request_username(request):
+  return request.params.get('user_name')
+
+def get_request_channel(request):
+  return request.params.get('channel_name')
+
 def get_response_url(request):
   return request.params.get('response_url')
 
