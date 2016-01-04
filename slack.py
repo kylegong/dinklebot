@@ -37,7 +37,9 @@ def get_response_url(request):
 def send_message(message_dict, webhook=secrets.SLACK_INCOMING_WEBHOOK):
   payload = json.dumps(message_dict)
   try:
-    urllib2.urlopen(webhook, payload)
+    response = urllib2.urlopen(webhook, payload)
+    logging.info('response from %s (%s): %s', webhook,
+                 response.getcode(), response.read())
   except urllib2.HTTPError:
     logging.warning('Error sending message to %s with payload:\n%s',
                     webhook, payload)
