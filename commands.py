@@ -11,6 +11,7 @@ from data import items
 from data import players
 from data import phrases
 import destiny
+import nba
 import slack
 
 COMMAND_LIST = []
@@ -198,3 +199,24 @@ class CommandRunner(object):
     return slack.response('\n'.join(help_messages), {
       'response_type': 'ephemeral'
     })
+
+  @command('nbascore', extra='team_code [date]',
+           help_text='Gets scores for NBA games')
+  def nbascore(self, extra):
+    tokens = extra.split()
+    team_code = tokens[0].upper()
+    scores = None
+    if len(tokens) >= 2:
+      date = tokens[1]
+      scores = nba.get_scores_for_team(nba.get_stats(date), team_code)
+    else:
+      today = datetime.date.today()
+      yesterday = datetime.date.today() - datetime.timedelta(days=1)
+      for date in (today, yesterday):
+        scores = nba.get_scores_for_team(nba.get_stats(str(date)), team_code)
+        if scores:
+          break
+    if not scores:
+      return slack.ephemeral(slack.response(
+          'No games found for %s on %s.' % (team_code, date)))
+    return slack.response(None, nba.format_scores(scores))
