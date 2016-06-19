@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import json
-import urllib2
+import url_opener
 
 NBA_BLUE = "#3965A4"
 
@@ -16,7 +16,8 @@ def get_logo_url(team_code):
 def get_stats(date):
   url = ('http://stats.nba.com/stats/scoreboard/?GameDate='
          '%(date)s&LeagueID=00&DayOffset=0' % {'date': date})
-  response = urllib2.urlopen(url)
+  opener = url_opener.create()
+  response = opener.open(url)
   stats = json.load(response)
   return stats
 
