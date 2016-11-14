@@ -200,10 +200,12 @@ class CommandRunner(object):
       'response_type': 'ephemeral'
     })
 
-  @command('nbascore', extra='team_code [date]',
+  @command('nba', extra='team_code [date]',
            help_text='Gets scores for NBA games')
   def nbascore(self, extra):
     tokens = extra.split()
+    if not tokens:
+      return slack.ephemeral(slack.response('Missing team_code'))
     team_code = tokens[0].upper()
     scores = None
     if len(tokens) >= 2:

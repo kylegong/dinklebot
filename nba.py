@@ -14,9 +14,11 @@ def get_logo_url(team_code):
           'global/logos/512x512/bg.white/png/%s.png' % team_code)
 
 def get_stats(date):
+  opener = url_opener.create()
+  ref_url = 'http://stats.nba.com/scores/'
+  opener.addheaders = [('Referer', ref_url)]
   url = ('http://stats.nba.com/stats/scoreboard/?GameDate='
          '%(date)s&LeagueID=00&DayOffset=0' % {'date': date})
-  opener = url_opener.create()
   response = opener.open(url)
   stats = json.load(response)
   return stats
